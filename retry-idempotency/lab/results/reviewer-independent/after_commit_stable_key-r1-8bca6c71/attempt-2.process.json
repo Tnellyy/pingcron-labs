@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:56984",
+    "--request",
+    "[LAB_ROOT]\\results\\reviewer-independent\\after_commit_stable_key-r1-8bca6c71\\attempt-2-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\reviewer-independent\\after_commit_stable_key-r1-8bca6c71\\attempt-2-result.json"
+  ],
+  "started_at": "2026-11-08T00:43:05.578278+00:00",
+  "ended_at": "2026-11-08T00:43:05.661181+00:00",
+  "exit": 0
+}

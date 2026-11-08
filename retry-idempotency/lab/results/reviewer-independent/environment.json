@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-11-08T00:43:03.788187+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.53.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "command": [
+    "[PYTHON]",
+    "lab.py",
+    "all",
+    "--output",
+    "results/reviewer-independent",
+    "--repetitions",
+    "1"
+  ],
+  "source_sha256": {
+    "client.py": "75e6fdddc2caf137366d1089c8c10db0ddfa4ad1ec84357f4338fe9899dad731",
+    "common.py": "3626c9a561b83e8f135a36ff4a1c8fda36461695637e8680becd62dd66aac543",
+    "lab.py": "834826ba8ac924df9233550ba4b0cc4cc61758a241c7b40920ca37a332c697f0",
+    "ledger.py": "201246176790bacc151b61c225917937ad3cf89e5c27d40c1f3c9586a1bfa74a",
+    "receiver.py": "e6b54d102e42f22f6ab600493e8d03ef58b4f11621a37e468a514bddd2dd2f1e"
+  },
+  "git_commit": null,
+  "synthetic_only": true,
+  "observed_sqlite_settings": {
+    "journal_mode": "delete",
+    "synchronous": 2,
+    "busy_timeout_ms": 10000,
+    "foreign_keys": 1
+  }
+}

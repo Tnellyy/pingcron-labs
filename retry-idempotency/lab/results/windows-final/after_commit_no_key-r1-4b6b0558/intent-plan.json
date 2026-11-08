@@ -1,0 +1,17 @@
+{
+  "run_id": "after_commit_no_key-r1-4b6b0558",
+  "case": "after_commit_no_key",
+  "repetition": 1,
+  "intents": [
+    {
+      "operation_id": "after_commit_no_key-r1-4b6b0558-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "after_commit_no_key-r1-4b6b0558-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

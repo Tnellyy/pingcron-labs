@@ -1,0 +1,3296 @@
+[
+  {
+    "run_id": "control-r1-6c29be1f",
+    "case": "control",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:03.920371+00:00",
+    "plan": {
+      "run_id": "control-r1-6c29be1f",
+      "case": "control",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "control-r1-6c29be1f-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "control-r1-6c29be1f-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "control-r1-6c29be1f-attempt1",
+        "operation_id": "control-r1-6c29be1f-opA",
+        "pid": 29044,
+        "request": {
+          "attempt_id": "control-r1-6c29be1f-attempt1",
+          "operation_id": "control-r1-6c29be1f-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "control-r1-6c29be1f-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:03.998457+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:03.998457+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:04.002549+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:04.014592+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "control-r1-6c29be1f-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "control-r1-6c29be1f-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:04.014592+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "control-r1-6c29be1f-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "control-r1-6c29be1f-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:03.913863+00:00",
+        "instance": "receiver-1",
+        "pid": 9212,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:03.999458+00:00",
+        "instance": "receiver-1",
+        "pid": 9212,
+        "event": "request_received",
+        "attempt_id": "control-r1-6c29be1f-attempt1",
+        "operation_id": "control-r1-6c29be1f-opA",
+        "scope": "synthetic-tenant",
+        "key": "control-r1-6c29be1f-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:04.002549+00:00",
+        "instance": "receiver-1",
+        "pid": 9212,
+        "event": "transaction_committed",
+        "attempt_id": "control-r1-6c29be1f-attempt1",
+        "operation_id": "control-r1-6c29be1f-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:04.002549+00:00",
+        "instance": "receiver-1",
+        "pid": 9212,
+        "event": "response_attempt",
+        "attempt_id": "control-r1-6c29be1f-attempt1",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:04.020592+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "after_commit_no_key-r1-91d06d9c",
+    "case": "after_commit_no_key",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:04.115182+00:00",
+    "plan": {
+      "run_id": "after_commit_no_key-r1-91d06d9c",
+      "case": "after_commit_no_key",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "after_commit_no_key-r1-91d06d9c-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1",
+        "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+        "pid": 11744,
+        "request": {
+          "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1",
+          "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": null,
+          "fault": "hold_after_commit",
+          "gate": "after_commit_no_key-r1-91d06d9c-gate1"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:04.190377+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:04.215555+00:00",
+            "event": "test_gate_confirmed",
+            "stage": "after_commit"
+          },
+          {
+            "at": "2026-11-08T00:43:04.215555+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": 0.2
+          },
+          {
+            "at": "2026-11-08T00:43:04.429603+00:00",
+            "event": "client_error",
+            "error_type": "TimeoutError"
+          }
+        ],
+        "status": null,
+        "error_type": "TimeoutError",
+        "response_json": null,
+        "replayed": null,
+        "error_detail": "timed out",
+        "client_exit": 5
+      },
+      {
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt2",
+        "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+        "pid": 9828,
+        "request": {
+          "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt2",
+          "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": null
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:04.551323+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:04.551323+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:04.565741+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:04.442656+00:00",
+        "label": "after-timeout-before-gate-release",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:04.576837+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:04.576837+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:04.108675+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:04.191380+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "request_received",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1",
+        "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+        "scope": "synthetic-tenant",
+        "key": null,
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": "hold_after_commit"
+      },
+      {
+        "at": "2026-11-08T00:43:04.194381+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "transaction_committed",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1",
+        "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:04.194381+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "gate_reached",
+        "gate": "after_commit_no_key-r1-91d06d9c-gate1",
+        "stage": "after_commit",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:04.475296+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "gate_released",
+        "gate": "after_commit_no_key-r1-91d06d9c-gate1",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:04.475296+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "response_attempt",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:04.475296+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "response_write_failed",
+        "error": "ConnectionAbortedError"
+      },
+      {
+        "at": "2026-11-08T00:43:04.552327+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "request_received",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt2",
+        "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+        "scope": "synthetic-tenant",
+        "key": null,
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:04.564381+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "transaction_committed",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt2",
+        "operation_id": "after_commit_no_key-r1-91d06d9c-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:04.564381+00:00",
+        "instance": "receiver-1",
+        "pid": 32140,
+        "event": "response_attempt",
+        "attempt_id": "after_commit_no_key-r1-91d06d9c-attempt2",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": false,
+    "ended_at": "2026-11-08T00:43:04.583837+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "after_commit_per_attempt_key-r1-c897ee32",
+    "case": "after_commit_per_attempt_key",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:04.679020+00:00",
+    "plan": {
+      "run_id": "after_commit_per_attempt_key-r1-c897ee32",
+      "case": "after_commit_per_attempt_key",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "after_commit_per_attempt_key-r1-c897ee32-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1",
+        "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+        "pid": 24604,
+        "request": {
+          "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1",
+          "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "after_commit_per_attempt_key-r1-c897ee32-keyA",
+          "fault": "hold_after_commit",
+          "gate": "after_commit_per_attempt_key-r1-c897ee32-gate1"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:04.774309+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:04.815062+00:00",
+            "event": "test_gate_confirmed",
+            "stage": "after_commit"
+          },
+          {
+            "at": "2026-11-08T00:43:04.815062+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": 0.2
+          },
+          {
+            "at": "2026-11-08T00:43:05.023043+00:00",
+            "event": "client_error",
+            "error_type": "TimeoutError"
+          }
+        ],
+        "status": null,
+        "error_type": "TimeoutError",
+        "response_json": null,
+        "replayed": null,
+        "error_detail": "timed out",
+        "client_exit": 5
+      },
+      {
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt2",
+        "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+        "pid": 11024,
+        "request": {
+          "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt2",
+          "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "after_commit_per_attempt_key-r1-c897ee32-keyB"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:05.148037+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:05.148037+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:05.150993+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:05.043664+00:00",
+        "label": "after-timeout-before-gate-release",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "after_commit_per_attempt_key-r1-c897ee32-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:05.162497+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "after_commit_per_attempt_key-r1-c897ee32-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          },
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "after_commit_per_attempt_key-r1-c897ee32-keyB",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+            "effect_id": 2
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:05.162497+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "after_commit_per_attempt_key-r1-c897ee32-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        },
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "after_commit_per_attempt_key-r1-c897ee32-keyB",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+          "effect_id": 2
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:04.669278+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:04.774309+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "request_received",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1",
+        "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+        "scope": "synthetic-tenant",
+        "key": "after_commit_per_attempt_key-r1-c897ee32-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": "hold_after_commit"
+      },
+      {
+        "at": "2026-11-08T00:43:04.777452+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "transaction_committed",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1",
+        "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:04.777452+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "gate_reached",
+        "gate": "after_commit_per_attempt_key-r1-c897ee32-gate1",
+        "stage": "after_commit",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:05.055492+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "gate_released",
+        "gate": "after_commit_per_attempt_key-r1-c897ee32-gate1",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:05.056499+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "response_attempt",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:05.056499+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "response_write_failed",
+        "error": "ConnectionAbortedError"
+      },
+      {
+        "at": "2026-11-08T00:43:05.148037+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "request_received",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt2",
+        "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+        "scope": "synthetic-tenant",
+        "key": "after_commit_per_attempt_key-r1-c897ee32-keyB",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:05.149988+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "transaction_committed",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt2",
+        "operation_id": "after_commit_per_attempt_key-r1-c897ee32-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:05.150993+00:00",
+        "instance": "receiver-1",
+        "pid": 19512,
+        "event": "response_attempt",
+        "attempt_id": "after_commit_per_attempt_key-r1-c897ee32-attempt2",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": false,
+    "ended_at": "2026-11-08T00:43:05.167498+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "after_commit_stable_key-r1-8bca6c71",
+    "case": "after_commit_stable_key",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:05.262626+00:00",
+    "plan": {
+      "run_id": "after_commit_stable_key-r1-8bca6c71",
+      "case": "after_commit_stable_key",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "after_commit_stable_key-r1-8bca6c71-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1",
+        "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+        "pid": 32568,
+        "request": {
+          "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1",
+          "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "after_commit_stable_key-r1-8bca6c71-keyA",
+          "fault": "hold_after_commit",
+          "gate": "after_commit_stable_key-r1-8bca6c71-gate1"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:05.337943+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:05.350088+00:00",
+            "event": "test_gate_confirmed",
+            "stage": "after_commit"
+          },
+          {
+            "at": "2026-11-08T00:43:05.350088+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": 0.2
+          },
+          {
+            "at": "2026-11-08T00:43:05.554567+00:00",
+            "event": "client_error",
+            "error_type": "TimeoutError"
+          }
+        ],
+        "status": null,
+        "error_type": "TimeoutError",
+        "response_json": null,
+        "replayed": null,
+        "error_detail": "timed out",
+        "client_exit": 5
+      },
+      {
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt2",
+        "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+        "pid": 16724,
+        "request": {
+          "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt2",
+          "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "after_commit_stable_key-r1-8bca6c71-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:05.653182+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:05.653182+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:05.654182+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": true,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:05.575045+00:00",
+        "label": "after-timeout-before-gate-release",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "after_commit_stable_key-r1-8bca6c71-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:05.665608+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "after_commit_stable_key-r1-8bca6c71-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:05.665608+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "after_commit_stable_key-r1-8bca6c71-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:05.249162+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:05.337943+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "request_received",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1",
+        "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+        "scope": "synthetic-tenant",
+        "key": "after_commit_stable_key-r1-8bca6c71-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": "hold_after_commit"
+      },
+      {
+        "at": "2026-11-08T00:43:05.340943+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "transaction_committed",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1",
+        "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:05.341944+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "gate_reached",
+        "gate": "after_commit_stable_key-r1-8bca6c71-gate1",
+        "stage": "after_commit",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:05.577279+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "gate_released",
+        "gate": "after_commit_stable_key-r1-8bca6c71-gate1",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:05.578278+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "response_attempt",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:05.578278+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "response_write_failed",
+        "error": "ConnectionAbortedError"
+      },
+      {
+        "at": "2026-11-08T00:43:05.653182+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "request_received",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt2",
+        "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+        "scope": "synthetic-tenant",
+        "key": "after_commit_stable_key-r1-8bca6c71-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:05.654182+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "transaction_committed",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt2",
+        "operation_id": "after_commit_stable_key-r1-8bca6c71-opA",
+        "replayed": true,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:05.654182+00:00",
+        "instance": "receiver-1",
+        "pid": 30592,
+        "event": "response_attempt",
+        "attempt_id": "after_commit_stable_key-r1-8bca6c71-attempt2",
+        "status": 201,
+        "replayed": true
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:05.669603+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "before_commit_timeout-r1-30848ad0",
+    "case": "before_commit_timeout",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:05.765373+00:00",
+    "plan": {
+      "run_id": "before_commit_timeout-r1-30848ad0",
+      "case": "before_commit_timeout",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "before_commit_timeout-r1-30848ad0-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt1",
+        "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+        "pid": 13200,
+        "request": {
+          "attempt_id": "before_commit_timeout-r1-30848ad0-attempt1",
+          "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "before_commit_timeout-r1-30848ad0-keyA",
+          "fault": "hold_before_abort",
+          "gate": "before_commit_timeout-r1-30848ad0-gate1"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:05.844803+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:05.857450+00:00",
+            "event": "test_gate_confirmed",
+            "stage": "before_transaction"
+          },
+          {
+            "at": "2026-11-08T00:43:05.857450+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": 0.2
+          },
+          {
+            "at": "2026-11-08T00:43:06.069680+00:00",
+            "event": "client_error",
+            "error_type": "TimeoutError"
+          }
+        ],
+        "status": null,
+        "error_type": "TimeoutError",
+        "response_json": null,
+        "replayed": null,
+        "error_detail": "timed out",
+        "client_exit": 5
+      },
+      {
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt2",
+        "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+        "pid": 10604,
+        "request": {
+          "attempt_id": "before_commit_timeout-r1-30848ad0-attempt2",
+          "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "before_commit_timeout-r1-30848ad0-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:06.189741+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:06.189741+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:06.192796+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:06.097685+00:00",
+        "label": "after-timeout-before-gate-release",
+        "effects": [],
+        "dedup": [],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:06.205397+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "before_commit_timeout-r1-30848ad0-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:06.205397+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "before_commit_timeout-r1-30848ad0-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:05.756146+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:05.846265+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "request_received",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt1",
+        "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+        "scope": "synthetic-tenant",
+        "key": "before_commit_timeout-r1-30848ad0-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": "hold_before_abort"
+      },
+      {
+        "at": "2026-11-08T00:43:05.846265+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "gate_reached",
+        "gate": "before_commit_timeout-r1-30848ad0-gate1",
+        "stage": "before_transaction",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:06.116490+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "gate_released",
+        "gate": "before_commit_timeout-r1-30848ad0-gate1",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:06.117486+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "request_aborted_before_transaction",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:06.189741+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "request_received",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt2",
+        "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+        "scope": "synthetic-tenant",
+        "key": "before_commit_timeout-r1-30848ad0-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:06.192796+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "transaction_committed",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt2",
+        "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:06.192796+00:00",
+        "instance": "receiver-1",
+        "pid": 24912,
+        "event": "response_attempt",
+        "attempt_id": "before_commit_timeout-r1-30848ad0-attempt2",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:06.209396+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "payload_mismatch-r1-8f4c6bf1",
+    "case": "payload_mismatch",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:06.310676+00:00",
+    "plan": {
+      "run_id": "payload_mismatch-r1-8f4c6bf1",
+      "case": "payload_mismatch",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "payload_mismatch-r1-8f4c6bf1-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt1",
+        "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+        "pid": 3924,
+        "request": {
+          "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt1",
+          "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "payload_mismatch-r1-8f4c6bf1-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:06.387801+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:06.387801+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:06.391801+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      },
+      {
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt2",
+        "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+        "pid": 30940,
+        "request": {
+          "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt2",
+          "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 9999
+          },
+          "scope": "synthetic-tenant",
+          "key": "payload_mismatch-r1-8f4c6bf1-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:06.483658+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:06.483658+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:06.485658+00:00",
+            "event": "response_received",
+            "status": 409
+          }
+        ],
+        "status": 409,
+        "error_type": null,
+        "response_json": "{\"error\":\"key_payload_mismatch\"}",
+        "replayed": false,
+        "client_exit": 4
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:06.496867+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "payload_mismatch-r1-8f4c6bf1-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:06.496867+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "payload_mismatch-r1-8f4c6bf1-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:06.295263+00:00",
+        "instance": "receiver-1",
+        "pid": 2188,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:06.388801+00:00",
+        "instance": "receiver-1",
+        "pid": 2188,
+        "event": "request_received",
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt1",
+        "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+        "scope": "synthetic-tenant",
+        "key": "payload_mismatch-r1-8f4c6bf1-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:06.391801+00:00",
+        "instance": "receiver-1",
+        "pid": 2188,
+        "event": "transaction_committed",
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt1",
+        "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:06.391801+00:00",
+        "instance": "receiver-1",
+        "pid": 2188,
+        "event": "response_attempt",
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:06.483658+00:00",
+        "instance": "receiver-1",
+        "pid": 2188,
+        "event": "request_received",
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt2",
+        "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+        "scope": "synthetic-tenant",
+        "key": "payload_mismatch-r1-8f4c6bf1-keyA",
+        "fingerprint": "fed0a287628fc2b70ce6dea2e145348ccc316cbeba7763f667cb10337be4c1be",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:06.484657+00:00",
+        "instance": "receiver-1",
+        "pid": 2188,
+        "event": "payload_conflict",
+        "attempt_id": "payload_mismatch-r1-8f4c6bf1-attempt2",
+        "key": "payload_mismatch-r1-8f4c6bf1-keyA"
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:06.500948+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "distinct_intents_distinct_keys-r1-7ab31852",
+    "case": "distinct_intents_distinct_keys",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:06.596063+00:00",
+    "plan": {
+      "run_id": "distinct_intents_distinct_keys-r1-7ab31852",
+      "case": "distinct_intents_distinct_keys",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "distinct_intents_distinct_keys-r1-7ab31852-keyA"
+        },
+        {
+          "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "distinct_intents_distinct_keys-r1-7ab31852-keyB"
+        }
+      ],
+      "expected_business_effects": 2,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt1",
+        "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+        "pid": 18312,
+        "request": {
+          "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt1",
+          "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "distinct_intents_distinct_keys-r1-7ab31852-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:06.669188+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:06.669188+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:06.673188+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      },
+      {
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt2",
+        "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+        "pid": 9068,
+        "request": {
+          "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt2",
+          "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "distinct_intents_distinct_keys-r1-7ab31852-keyB"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:06.757731+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:06.757731+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:06.761802+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:06.773306+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "distinct_intents_distinct_keys-r1-7ab31852-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          },
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "distinct_intents_distinct_keys-r1-7ab31852-keyB",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+            "effect_id": 2
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:06.773306+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "distinct_intents_distinct_keys-r1-7ab31852-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        },
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "distinct_intents_distinct_keys-r1-7ab31852-keyB",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+          "effect_id": 2
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:06.587946+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:06.669188+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "request_received",
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt1",
+        "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+        "scope": "synthetic-tenant",
+        "key": "distinct_intents_distinct_keys-r1-7ab31852-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:06.672187+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "transaction_committed",
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt1",
+        "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:06.673188+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "response_attempt",
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:06.758731+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "request_received",
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt2",
+        "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+        "scope": "synthetic-tenant",
+        "key": "distinct_intents_distinct_keys-r1-7ab31852-keyB",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:06.760803+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "transaction_committed",
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt2",
+        "operation_id": "distinct_intents_distinct_keys-r1-7ab31852-opB",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:06.761802+00:00",
+        "instance": "receiver-1",
+        "pid": 30936,
+        "event": "response_attempt",
+        "attempt_id": "distinct_intents_distinct_keys-r1-7ab31852-attempt2",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:06.778306+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "distinct_intents_reused_key-r1-a608e1f9",
+    "case": "distinct_intents_reused_key",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:06.872618+00:00",
+    "plan": {
+      "run_id": "distinct_intents_reused_key-r1-a608e1f9",
+      "case": "distinct_intents_reused_key",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "distinct_intents_reused_key-r1-a608e1f9-keyA"
+        },
+        {
+          "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opB",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "distinct_intents_reused_key-r1-a608e1f9-keyB"
+        }
+      ],
+      "expected_business_effects": 2,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt1",
+        "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+        "pid": 9992,
+        "request": {
+          "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt1",
+          "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "distinct_intents_reused_key-r1-a608e1f9-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:06.946901+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:06.946901+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:06.950971+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      },
+      {
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt2",
+        "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opB",
+        "pid": 11220,
+        "request": {
+          "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt2",
+          "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opB",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "distinct_intents_reused_key-r1-a608e1f9-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:07.031761+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:07.031761+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:07.033765+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": true,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:07.045773+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "distinct_intents_reused_key-r1-a608e1f9-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:07.045773+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "distinct_intents_reused_key-r1-a608e1f9-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:06.864375+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:06.947900+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "request_received",
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt1",
+        "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+        "scope": "synthetic-tenant",
+        "key": "distinct_intents_reused_key-r1-a608e1f9-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:06.950971+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "transaction_committed",
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt1",
+        "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:06.950971+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "response_attempt",
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:07.032765+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "request_received",
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt2",
+        "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opB",
+        "scope": "synthetic-tenant",
+        "key": "distinct_intents_reused_key-r1-a608e1f9-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:07.033765+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "transaction_committed",
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt2",
+        "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opB",
+        "replayed": true,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:07.033765+00:00",
+        "instance": "receiver-1",
+        "pid": 28012,
+        "event": "response_attempt",
+        "attempt_id": "distinct_intents_reused_key-r1-a608e1f9-attempt2",
+        "status": 201,
+        "replayed": true
+      }
+    ],
+    "business_target_met": false,
+    "ended_at": "2026-11-08T00:43:07.048833+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "concurrent_stable_key-r1-4e96d336",
+    "case": "concurrent_stable_key",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:07.159458+00:00",
+    "plan": {
+      "run_id": "concurrent_stable_key-r1-4e96d336",
+      "case": "concurrent_stable_key",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "concurrent_stable_key-r1-4e96d336-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1",
+        "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+        "pid": 26956,
+        "request": {
+          "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1",
+          "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "concurrent_stable_key-r1-4e96d336-keyA",
+          "barrier": "concurrent_stable_key-r1-4e96d336-concurrent"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:07.236626+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:07.236626+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:07.242134+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      },
+      {
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2",
+        "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+        "pid": 28860,
+        "request": {
+          "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2",
+          "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "concurrent_stable_key-r1-4e96d336-keyA",
+          "barrier": "concurrent_stable_key-r1-4e96d336-concurrent"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:07.236626+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:07.236626+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:07.251541+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": true,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:07.265827+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "concurrent_stable_key-r1-4e96d336-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "final_state": {
+      "at": "2026-11-08T00:43:07.265827+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "concurrent_stable_key-r1-4e96d336-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:07.132250+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:07.237625+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "request_received",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1",
+        "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+        "scope": "synthetic-tenant",
+        "key": "concurrent_stable_key-r1-4e96d336-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:07.237625+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "request_received",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2",
+        "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+        "scope": "synthetic-tenant",
+        "key": "concurrent_stable_key-r1-4e96d336-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:07.238624+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "concurrent_barrier_arrived",
+        "barrier": "concurrent_stable_key-r1-4e96d336-concurrent",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:07.238624+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "concurrent_barrier_arrived",
+        "barrier": "concurrent_stable_key-r1-4e96d336-concurrent",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2"
+      },
+      {
+        "at": "2026-11-08T00:43:07.238624+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "concurrent_barrier_passed",
+        "barrier": "concurrent_stable_key-r1-4e96d336-concurrent",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2"
+      },
+      {
+        "at": "2026-11-08T00:43:07.238624+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "concurrent_barrier_passed",
+        "barrier": "concurrent_stable_key-r1-4e96d336-concurrent",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:07.241130+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "transaction_committed",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1",
+        "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:07.241130+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "response_attempt",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:07.251541+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "transaction_committed",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2",
+        "operation_id": "concurrent_stable_key-r1-4e96d336-opA",
+        "replayed": true,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:07.251541+00:00",
+        "instance": "receiver-1",
+        "pid": 13632,
+        "event": "response_attempt",
+        "attempt_id": "concurrent_stable_key-r1-4e96d336-attempt2",
+        "status": 201,
+        "replayed": true
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:07.270827+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "crash_before_commit-r1-7c7c4a14",
+    "case": "crash_before_commit",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:07.364964+00:00",
+    "plan": {
+      "run_id": "crash_before_commit-r1-7c7c4a14",
+      "case": "crash_before_commit",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "crash_before_commit-r1-7c7c4a14-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt1",
+        "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+        "pid": 9040,
+        "request": {
+          "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt1",
+          "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "crash_before_commit-r1-7c7c4a14-keyA",
+          "fault": "crash_before_commit"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:07.462107+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:07.462107+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:07.465427+00:00",
+            "event": "client_error",
+            "error_type": "ConnectionResetError"
+          }
+        ],
+        "status": null,
+        "error_type": "ConnectionResetError",
+        "response_json": null,
+        "replayed": null,
+        "error_detail": "[WinError 10054] An existing connection was forcibly closed by the remote host",
+        "client_exit": 6
+      },
+      {
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt2",
+        "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+        "pid": 32744,
+        "request": {
+          "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt2",
+          "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "crash_before_commit-r1-7c7c4a14-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:07.648749+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:07.648749+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:07.652774+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:07.477125+00:00",
+        "label": "after-crash-before-restart",
+        "effects": [],
+        "dedup": [],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:07.663461+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "crash_before_commit-r1-7c7c4a14-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": true,
+    "injected_receiver_exit": 88,
+    "final_state": {
+      "at": "2026-11-08T00:43:07.663461+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "crash_before_commit-r1-7c7c4a14-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:07.351704+00:00",
+        "instance": "receiver-1",
+        "pid": 30932,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:07.462107+00:00",
+        "instance": "receiver-1",
+        "pid": 30932,
+        "event": "request_received",
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt1",
+        "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+        "scope": "synthetic-tenant",
+        "key": "crash_before_commit-r1-7c7c4a14-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": "crash_before_commit"
+      },
+      {
+        "at": "2026-11-08T00:43:07.464115+00:00",
+        "instance": "receiver-1",
+        "pid": 30932,
+        "event": "crash_after_effect_insert_before_commit",
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt1",
+        "uncommitted_effect_id": 1
+      },
+      {
+        "at": "2026-11-08T00:43:07.561557+00:00",
+        "instance": "receiver-2",
+        "pid": 7992,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:07.649773+00:00",
+        "instance": "receiver-2",
+        "pid": 7992,
+        "event": "request_received",
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt2",
+        "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+        "scope": "synthetic-tenant",
+        "key": "crash_before_commit-r1-7c7c4a14-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:07.651774+00:00",
+        "instance": "receiver-2",
+        "pid": 7992,
+        "event": "transaction_committed",
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt2",
+        "operation_id": "crash_before_commit-r1-7c7c4a14-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:07.652774+00:00",
+        "instance": "receiver-2",
+        "pid": 7992,
+        "event": "response_attempt",
+        "attempt_id": "crash_before_commit-r1-7c7c4a14-attempt2",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:07.668469+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "crash_after_commit-r1-ba1ca720",
+    "case": "crash_after_commit",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:07.764681+00:00",
+    "plan": {
+      "run_id": "crash_after_commit-r1-ba1ca720",
+      "case": "crash_after_commit",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "crash_after_commit-r1-ba1ca720-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt1",
+        "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+        "pid": 27836,
+        "request": {
+          "attempt_id": "crash_after_commit-r1-ba1ca720-attempt1",
+          "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "crash_after_commit-r1-ba1ca720-keyA",
+          "fault": "crash_after_commit"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:07.837720+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:07.837720+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:07.842363+00:00",
+            "event": "client_error",
+            "error_type": "ConnectionResetError"
+          }
+        ],
+        "status": null,
+        "error_type": "ConnectionResetError",
+        "response_json": null,
+        "replayed": null,
+        "error_detail": "[WinError 10054] An existing connection was forcibly closed by the remote host",
+        "client_exit": 6
+      },
+      {
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt2",
+        "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+        "pid": 31820,
+        "request": {
+          "attempt_id": "crash_after_commit-r1-ba1ca720-attempt2",
+          "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "crash_after_commit-r1-ba1ca720-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:08.025178+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:08.025178+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:08.026180+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": true,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:07.853481+00:00",
+        "label": "after-crash-before-restart",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "crash_after_commit-r1-ba1ca720-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:08.037855+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "crash_after_commit-r1-ba1ca720-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": true,
+    "injected_receiver_exit": 89,
+    "final_state": {
+      "at": "2026-11-08T00:43:08.037855+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "crash_after_commit-r1-ba1ca720-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+          "effect_id": 1
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:07.754743+00:00",
+        "instance": "receiver-1",
+        "pid": 11072,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:07.838720+00:00",
+        "instance": "receiver-1",
+        "pid": 11072,
+        "event": "request_received",
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt1",
+        "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+        "scope": "synthetic-tenant",
+        "key": "crash_after_commit-r1-ba1ca720-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": "crash_after_commit"
+      },
+      {
+        "at": "2026-11-08T00:43:07.840359+00:00",
+        "instance": "receiver-1",
+        "pid": 11072,
+        "event": "transaction_committed",
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt1",
+        "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:07.841363+00:00",
+        "instance": "receiver-1",
+        "pid": 11072,
+        "event": "crash_after_commit_before_response",
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt1"
+      },
+      {
+        "at": "2026-11-08T00:43:07.927772+00:00",
+        "instance": "receiver-2",
+        "pid": 5136,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:08.025178+00:00",
+        "instance": "receiver-2",
+        "pid": 5136,
+        "event": "request_received",
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt2",
+        "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+        "scope": "synthetic-tenant",
+        "key": "crash_after_commit-r1-ba1ca720-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:08.025178+00:00",
+        "instance": "receiver-2",
+        "pid": 5136,
+        "event": "transaction_committed",
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt2",
+        "operation_id": "crash_after_commit-r1-ba1ca720-opA",
+        "replayed": true,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:08.026180+00:00",
+        "instance": "receiver-2",
+        "pid": 5136,
+        "event": "response_attempt",
+        "attempt_id": "crash_after_commit-r1-ba1ca720-attempt2",
+        "status": 201,
+        "replayed": true
+      }
+    ],
+    "business_target_met": true,
+    "ended_at": "2026-11-08T00:43:08.042855+00:00",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "dedup_record_removed-r1-5ef0fb7b",
+    "case": "dedup_record_removed",
+    "repetition": 1,
+    "started_at": "2026-11-08T00:43:08.137872+00:00",
+    "plan": {
+      "run_id": "dedup_record_removed-r1-5ef0fb7b",
+      "case": "dedup_record_removed",
+      "repetition": 1,
+      "intents": [
+        {
+          "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "key": "dedup_record_removed-r1-5ef0fb7b-keyA"
+        }
+      ],
+      "expected_business_effects": 1,
+      "fixture_origin": "independent deterministic synthetic intent plan"
+    },
+    "attempts": [
+      {
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt1",
+        "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+        "pid": 2624,
+        "request": {
+          "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt1",
+          "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "dedup_record_removed-r1-5ef0fb7b-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:08.211260+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:08.211260+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:08.214939+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "replayed": false,
+        "client_exit": 0
+      },
+      {
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt2",
+        "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+        "pid": 17580,
+        "request": {
+          "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt2",
+          "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+          "payload": {
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          "scope": "synthetic-tenant",
+          "key": "dedup_record_removed-r1-5ef0fb7b-keyA"
+        },
+        "events": [
+          {
+            "at": "2026-11-08T00:43:08.328852+00:00",
+            "event": "request_sent"
+          },
+          {
+            "at": "2026-11-08T00:43:08.328852+00:00",
+            "event": "response_read_started",
+            "injected_timeout_seconds": null
+          },
+          {
+            "at": "2026-11-08T00:43:08.331852+00:00",
+            "event": "response_received",
+            "status": 201
+          }
+        ],
+        "status": 201,
+        "error_type": null,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "replayed": false,
+        "client_exit": 0
+      }
+    ],
+    "observations": [
+      {
+        "at": "2026-11-08T00:43:08.227279+00:00",
+        "label": "before-retention-removal",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "dedup_record_removed-r1-5ef0fb7b-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+            "effect_id": 1
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:08.254120+00:00",
+        "label": "after-retention-removal",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      },
+      {
+        "at": "2026-11-08T00:43:08.342852+00:00",
+        "label": "final",
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+            "account": "synthetic-account",
+            "amount_cents": 2500
+          }
+        ],
+        "dedup": [
+          {
+            "scope": "synthetic-tenant",
+            "operation_key": "dedup_record_removed-r1-5ef0fb7b-keyA",
+            "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+            "status": 201,
+            "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+            "effect_id": 2
+          }
+        ],
+        "integrity_rows": [
+          [
+            "ok"
+          ]
+        ],
+        "foreign_key_rows": [],
+        "sqlite_settings": {
+          "journal_mode": "delete",
+          "synchronous": 2,
+          "busy_timeout_ms": 10000,
+          "foreign_keys": 1
+        }
+      }
+    ],
+    "receiver_restart": false,
+    "retention_action": {
+      "removed": 1
+    },
+    "final_state": {
+      "at": "2026-11-08T00:43:08.342852+00:00",
+      "label": "final",
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+          "account": "synthetic-account",
+          "amount_cents": 2500
+        }
+      ],
+      "dedup": [
+        {
+          "scope": "synthetic-tenant",
+          "operation_key": "dedup_record_removed-r1-5ef0fb7b-keyA",
+          "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+          "status": 201,
+          "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+          "effect_id": 2
+        }
+      ],
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "sqlite_settings": {
+        "journal_mode": "delete",
+        "synchronous": 2,
+        "busy_timeout_ms": 10000,
+        "foreign_keys": 1
+      }
+    },
+    "receiver_events": [
+      {
+        "at": "2026-11-08T00:43:08.126851+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "receiver_ready"
+      },
+      {
+        "at": "2026-11-08T00:43:08.211260+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "request_received",
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt1",
+        "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+        "scope": "synthetic-tenant",
+        "key": "dedup_record_removed-r1-5ef0fb7b-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:08.214939+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "transaction_committed",
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt1",
+        "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":1}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:08.214939+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "response_attempt",
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt1",
+        "status": 201,
+        "replayed": false
+      },
+      {
+        "at": "2026-11-08T00:43:08.253118+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "test_retention_record_removed",
+        "scope": "synthetic-tenant",
+        "key": "dedup_record_removed-r1-5ef0fb7b-keyA",
+        "rows": 1
+      },
+      {
+        "at": "2026-11-08T00:43:08.328852+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "request_received",
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt2",
+        "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+        "scope": "synthetic-tenant",
+        "key": "dedup_record_removed-r1-5ef0fb7b-keyA",
+        "fingerprint": "08ec239c69f53ffaf63bdd32aae75b01d7ca2541b5df273e295191c20a6e47e2",
+        "fault": null
+      },
+      {
+        "at": "2026-11-08T00:43:08.330852+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "transaction_committed",
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt2",
+        "operation_id": "dedup_record_removed-r1-5ef0fb7b-opA",
+        "replayed": false,
+        "response_json": "{\"account\":\"synthetic-account\",\"amount_cents\":2500,\"effect_id\":2}",
+        "status": 201
+      },
+      {
+        "at": "2026-11-08T00:43:08.331852+00:00",
+        "instance": "receiver-1",
+        "pid": 17708,
+        "event": "response_attempt",
+        "attempt_id": "dedup_record_removed-r1-5ef0fb7b-attempt2",
+        "status": 201,
+        "replayed": false
+      }
+    ],
+    "business_target_met": false,
+    "ended_at": "2026-11-08T00:43:08.353264+00:00",
+    "expectation_passed": true
+  }
+]

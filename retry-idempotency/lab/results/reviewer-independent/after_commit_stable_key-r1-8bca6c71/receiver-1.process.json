@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\reviewer-independent\\after_commit_stable_key-r1-8bca6c71\\receiver",
+    "--instance",
+    "receiver-1"
+  ],
+  "exit": 1,
+  "instance": "receiver-1"
+}

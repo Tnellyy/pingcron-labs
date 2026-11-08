@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:59054",
+    "--request",
+    "[LAB_ROOT]\\results\\windows-final\\crash_after_commit-r3-6e74c882\\attempt-1-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\crash_after_commit-r3-6e74c882\\attempt-1-result.json"
+  ],
+  "started_at": "2026-11-08T00:42:19.570876+00:00",
+  "ended_at": "2026-11-08T00:42:19.649333+00:00",
+  "exit": 6
+}

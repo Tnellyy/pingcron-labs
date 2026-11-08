@@ -1,0 +1,25 @@
+{
+  "run_id": "distinct_intents_distinct_keys-r2-d17bbc3e",
+  "case": "distinct_intents_distinct_keys",
+  "repetition": 2,
+  "intents": [
+    {
+      "operation_id": "distinct_intents_distinct_keys-r2-d17bbc3e-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "distinct_intents_distinct_keys-r2-d17bbc3e-keyA"
+    },
+    {
+      "operation_id": "distinct_intents_distinct_keys-r2-d17bbc3e-opB",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "distinct_intents_distinct_keys-r2-d17bbc3e-keyB"
+    }
+  ],
+  "expected_business_effects": 2,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

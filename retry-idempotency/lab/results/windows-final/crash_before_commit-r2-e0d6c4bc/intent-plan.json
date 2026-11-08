@@ -1,0 +1,17 @@
+{
+  "run_id": "crash_before_commit-r2-e0d6c4bc",
+  "case": "crash_before_commit",
+  "repetition": 2,
+  "intents": [
+    {
+      "operation_id": "crash_before_commit-r2-e0d6c4bc-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "crash_before_commit-r2-e0d6c4bc-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

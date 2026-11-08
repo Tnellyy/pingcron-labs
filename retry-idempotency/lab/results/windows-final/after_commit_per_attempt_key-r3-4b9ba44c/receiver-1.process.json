@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\after_commit_per_attempt_key-r3-4b9ba44c\\receiver",
+    "--instance",
+    "receiver-1"
+  ],
+  "exit": 1,
+  "instance": "receiver-1"
+}

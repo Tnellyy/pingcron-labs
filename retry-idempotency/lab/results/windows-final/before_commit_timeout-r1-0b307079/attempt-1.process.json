@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:58934",
+    "--request",
+    "[LAB_ROOT]\\results\\windows-final\\before_commit_timeout-r1-0b307079\\attempt-1-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\before_commit_timeout-r1-0b307079\\attempt-1-result.json"
+  ],
+  "started_at": "2026-11-08T00:42:08.700637+00:00",
+  "ended_at": "2026-11-08T00:42:09.036692+00:00",
+  "exit": 5
+}

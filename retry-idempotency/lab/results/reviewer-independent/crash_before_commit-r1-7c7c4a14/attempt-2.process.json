@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:57010",
+    "--request",
+    "[LAB_ROOT]\\results\\reviewer-independent\\crash_before_commit-r1-7c7c4a14\\attempt-2-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\reviewer-independent\\crash_before_commit-r1-7c7c4a14\\attempt-2-result.json"
+  ],
+  "started_at": "2026-11-08T00:43:07.573765+00:00",
+  "ended_at": "2026-11-08T00:43:07.659037+00:00",
+  "exit": 0
+}

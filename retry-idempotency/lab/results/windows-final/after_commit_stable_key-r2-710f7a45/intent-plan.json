@@ -1,0 +1,17 @@
+{
+  "run_id": "after_commit_stable_key-r2-710f7a45",
+  "case": "after_commit_stable_key",
+  "repetition": 2,
+  "intents": [
+    {
+      "operation_id": "after_commit_stable_key-r2-710f7a45-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "after_commit_stable_key-r2-710f7a45-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

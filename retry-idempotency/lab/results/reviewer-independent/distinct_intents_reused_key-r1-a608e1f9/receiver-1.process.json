@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\reviewer-independent\\distinct_intents_reused_key-r1-a608e1f9\\receiver",
+    "--instance",
+    "receiver-1"
+  ],
+  "exit": 1,
+  "instance": "receiver-1"
+}

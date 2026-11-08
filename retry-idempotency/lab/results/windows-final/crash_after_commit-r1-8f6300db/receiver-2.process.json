@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\crash_after_commit-r1-8f6300db\\receiver",
+    "--instance",
+    "receiver-2"
+  ],
+  "exit": 1,
+  "instance": "receiver-2"
+}

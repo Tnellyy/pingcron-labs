@@ -1,0 +1,17 @@
+{
+  "run_id": "dedup_record_removed-r1-bf7e5022",
+  "case": "dedup_record_removed",
+  "repetition": 1,
+  "intents": [
+    {
+      "operation_id": "dedup_record_removed-r1-bf7e5022-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "dedup_record_removed-r1-bf7e5022-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

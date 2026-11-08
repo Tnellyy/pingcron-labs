@@ -1,0 +1,17 @@
+{
+  "run_id": "before_commit_timeout-r1-30848ad0",
+  "case": "before_commit_timeout",
+  "repetition": 1,
+  "intents": [
+    {
+      "operation_id": "before_commit_timeout-r1-30848ad0-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "before_commit_timeout-r1-30848ad0-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

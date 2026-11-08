@@ -1,0 +1,25 @@
+{
+  "run_id": "distinct_intents_reused_key-r1-a608e1f9",
+  "case": "distinct_intents_reused_key",
+  "repetition": 1,
+  "intents": [
+    {
+      "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "distinct_intents_reused_key-r1-a608e1f9-keyA"
+    },
+    {
+      "operation_id": "distinct_intents_reused_key-r1-a608e1f9-opB",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "distinct_intents_reused_key-r1-a608e1f9-keyB"
+    }
+  ],
+  "expected_business_effects": 2,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

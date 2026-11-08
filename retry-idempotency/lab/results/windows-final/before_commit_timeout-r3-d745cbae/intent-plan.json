@@ -1,0 +1,17 @@
+{
+  "run_id": "before_commit_timeout-r3-d745cbae",
+  "case": "before_commit_timeout",
+  "repetition": 3,
+  "intents": [
+    {
+      "operation_id": "before_commit_timeout-r3-d745cbae-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "before_commit_timeout-r3-d745cbae-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

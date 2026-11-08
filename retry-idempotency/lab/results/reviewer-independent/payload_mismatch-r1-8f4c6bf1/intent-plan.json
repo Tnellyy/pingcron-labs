@@ -1,0 +1,17 @@
+{
+  "run_id": "payload_mismatch-r1-8f4c6bf1",
+  "case": "payload_mismatch",
+  "repetition": 1,
+  "intents": [
+    {
+      "operation_id": "payload_mismatch-r1-8f4c6bf1-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "payload_mismatch-r1-8f4c6bf1-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

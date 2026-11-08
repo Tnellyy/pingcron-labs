@@ -1,0 +1,17 @@
+{
+  "run_id": "after_commit_per_attempt_key-r3-4b9ba44c",
+  "case": "after_commit_per_attempt_key",
+  "repetition": 3,
+  "intents": [
+    {
+      "operation_id": "after_commit_per_attempt_key-r3-4b9ba44c-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "after_commit_per_attempt_key-r3-4b9ba44c-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

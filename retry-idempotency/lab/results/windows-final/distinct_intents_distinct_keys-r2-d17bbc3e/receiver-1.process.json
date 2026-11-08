@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\distinct_intents_distinct_keys-r2-d17bbc3e\\receiver",
+    "--instance",
+    "receiver-1"
+  ],
+  "exit": 1,
+  "instance": "receiver-1"
+}

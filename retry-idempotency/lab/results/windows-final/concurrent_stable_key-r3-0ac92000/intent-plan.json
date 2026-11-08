@@ -1,0 +1,17 @@
+{
+  "run_id": "concurrent_stable_key-r3-0ac92000",
+  "case": "concurrent_stable_key",
+  "repetition": 3,
+  "intents": [
+    {
+      "operation_id": "concurrent_stable_key-r3-0ac92000-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "concurrent_stable_key-r3-0ac92000-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

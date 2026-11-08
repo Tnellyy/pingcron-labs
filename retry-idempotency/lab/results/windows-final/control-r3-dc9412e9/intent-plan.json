@@ -1,0 +1,17 @@
+{
+  "run_id": "control-r3-dc9412e9",
+  "case": "control",
+  "repetition": 3,
+  "intents": [
+    {
+      "operation_id": "control-r3-dc9412e9-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "control-r3-dc9412e9-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:58993",
+    "--request",
+    "[LAB_ROOT]\\results\\windows-final\\distinct_intents_distinct_keys-r2-d17bbc3e\\attempt-2-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\distinct_intents_distinct_keys-r2-d17bbc3e\\attempt-2-result.json"
+  ],
+  "started_at": "2026-11-08T00:42:14.055603+00:00",
+  "ended_at": "2026-11-08T00:42:14.139929+00:00",
+  "exit": 0
+}

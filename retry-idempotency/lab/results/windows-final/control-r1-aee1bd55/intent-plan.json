@@ -1,0 +1,17 @@
+{
+  "run_id": "control-r1-aee1bd55",
+  "case": "control",
+  "repetition": 1,
+  "intents": [
+    {
+      "operation_id": "control-r1-aee1bd55-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "control-r1-aee1bd55-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}

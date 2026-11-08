@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:58915",
+    "--request",
+    "[LAB_ROOT]\\results\\windows-final\\control-r1-aee1bd55\\attempt-1-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\control-r1-aee1bd55\\attempt-1-result.json"
+  ],
+  "started_at": "2026-11-08T00:42:06.932425+00:00",
+  "ended_at": "2026-11-08T00:42:07.016439+00:00",
+  "exit": 0
+}

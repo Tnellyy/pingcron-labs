@@ -1,0 +1,15 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\client.py",
+    "--url",
+    "http://127.0.0.1:56972",
+    "--request",
+    "[LAB_ROOT]\\results\\reviewer-independent\\control-r1-6c29be1f\\attempt-1-request.json",
+    "--output",
+    "[LAB_ROOT]\\results\\reviewer-independent\\control-r1-6c29be1f\\attempt-1-result.json"
+  ],
+  "started_at": "2026-11-08T00:43:03.920371+00:00",
+  "ended_at": "2026-11-08T00:43:04.010548+00:00",
+  "exit": 0
+}

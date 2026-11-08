@@ -1,0 +1,17 @@
+{
+  "run_id": "crash_after_commit-r2-936b159d",
+  "case": "crash_after_commit",
+  "repetition": 2,
+  "intents": [
+    {
+      "operation_id": "crash_after_commit-r2-936b159d-opA",
+      "payload": {
+        "account": "synthetic-account",
+        "amount_cents": 2500
+      },
+      "key": "crash_after_commit-r2-936b159d-keyA"
+    }
+  ],
+  "expected_business_effects": 1,
+  "fixture_origin": "independent deterministic synthetic intent plan"
+}
