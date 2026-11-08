@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r1-62e9c1a4",
+    "--url",
+    "http://127.0.0.1:57169/objects/corrupt_transfer-r1-62e9c1a4.zip",
+    "--sha256",
+    "f1863bfc6da82ad7530d2f304db6c34c195b346009fc361864f95e94dfac8c34",
+    "--run-id",
+    "corrupt_transfer-r1-62e9c1a4"
+  ],
+  "started_at": "2026-11-08T00:05:05.413020+00:00",
+  "ended_at": "2026-11-08T00:05:05.524291+00:00",
+  "elapsed_seconds": 0.11000000000058208,
+  "exit": 3
+}

@@ -1,0 +1,3 @@
+{"at": "2026-11-08T00:05:07.078798+00:00", "event": "upload_accepted", "key": "wrong_source-r2-87118409.zip", "received_sha256": "6610f1adb2cf117f2f46a565df6386c43b1ad802c00a2cf20961248a97617cef", "bytes": 12807}
+{"at": "2026-11-08T00:05:07.079799+00:00", "event": "checkin_received", "run_id": "wrong_source-r2-87118409", "policy": "weak_exit_upload_only"}
+{"at": "2026-11-08T00:05:07.179116+00:00", "event": "download", "key": "wrong_source-r2-87118409.zip", "sha256": "6610f1adb2cf117f2f46a565df6386c43b1ad802c00a2cf20961248a97617cef"}

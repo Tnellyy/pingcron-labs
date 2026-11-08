@@ -1,0 +1,41 @@
+{
+  "expected": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1042,
+        1,
+        1200
+      ],
+      [
+        1043,
+        1,
+        4500
+      ]
+    ],
+    "expected_transaction": 1043
+  },
+  "actual": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1042,
+        1,
+        1200
+      ]
+    ],
+    "expected_transaction_present": false,
+    "latest_transaction": 1042
+  },
+  "semantic_match": false
+}

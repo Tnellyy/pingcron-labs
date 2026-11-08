@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\lost_object-r1-7c2c8c2c\\receiver",
+    "--mode",
+    "lost_object"
+  ],
+  "exit": 1,
+  "shutdown": "terminated by harness after workflow; not a fault"
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\backup.py",
+    "--source",
+    "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\sources\\intended.sqlite",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\artifacts\\checkin_unavailable-r1-cce416fa.zip",
+    "--run-id",
+    "checkin_unavailable-r1-cce416fa"
+  ],
+  "started_at": "2026-11-08T00:05:06.138216+00:00",
+  "ended_at": "2026-11-08T00:05:06.202259+00:00",
+  "elapsed_seconds": 0.06300000000010186,
+  "exit": 0
+}

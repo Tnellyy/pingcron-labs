@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\workflow.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\control-r3-72a4c0a1",
+    "--case",
+    "control",
+    "--run-id",
+    "control-r3-72a4c0a1",
+    "--receiver",
+    "http://127.0.0.1:57213"
+  ],
+  "started_at": "2026-11-08T00:05:09.362412+00:00",
+  "ended_at": "2026-11-08T00:05:09.663452+00:00",
+  "elapsed_seconds": 0.2960000000002765,
+  "exit": 0
+}

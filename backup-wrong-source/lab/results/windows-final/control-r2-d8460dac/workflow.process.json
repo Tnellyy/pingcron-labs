@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\workflow.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\control-r2-d8460dac",
+    "--case",
+    "control",
+    "--run-id",
+    "control-r2-d8460dac",
+    "--receiver",
+    "http://127.0.0.1:57182"
+  ],
+  "started_at": "2026-11-08T00:05:06.477610+00:00",
+  "ended_at": "2026-11-08T00:05:06.790815+00:00",
+  "elapsed_seconds": 0.31199999999989814,
+  "exit": 0
+}

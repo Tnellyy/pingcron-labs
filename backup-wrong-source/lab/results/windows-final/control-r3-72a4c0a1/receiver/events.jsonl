@@ -1,0 +1,4 @@
+{"at": "2026-11-08T00:05:09.519201+00:00", "event": "upload_accepted", "key": "control-r3-72a4c0a1.zip", "received_sha256": "e8b058e957778127e62227e6670dd9745ae8c0c502b81b83574b7b5e6ef9a19c", "bytes": 12800}
+{"at": "2026-11-08T00:05:09.536086+00:00", "event": "checkin_received", "run_id": "control-r3-72a4c0a1", "policy": "weak_exit_upload_only"}
+{"at": "2026-11-08T00:05:09.634859+00:00", "event": "download", "key": "control-r3-72a4c0a1.zip", "sha256": "e8b058e957778127e62227e6670dd9745ae8c0c502b81b83574b7b5e6ef9a19c"}
+{"at": "2026-11-08T00:05:09.654073+00:00", "event": "checkin_received", "run_id": "control-r3-72a4c0a1", "policy": "validated"}

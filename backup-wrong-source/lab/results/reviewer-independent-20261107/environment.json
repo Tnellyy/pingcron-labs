@@ -1,0 +1,30 @@
+{
+  "started_at": "2026-11-08T00:06:34.605910+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "sqlite": "3.53.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "os_name": "nt",
+  "executable": "[PYTHON]",
+  "command": [
+    "[PYTHON]",
+    "lab.py",
+    "all",
+    "--output",
+    "results/reviewer-independent-20261107",
+    "--repetitions",
+    "1"
+  ],
+  "source_sha256": {
+    "backup.py": "8cac27bf44d9c65dfd0be6a96b14883268891dc58a2ee9923723d3e35fce4feb",
+    "common.py": "5c2059ad079474fc42a8c515083baf799961db654d18d4b1988afd5ae7c884dd",
+    "fixture.py": "41ac04a5ad235940e475078946fce82d15d282e7649f121494a2fbbaf7197fed",
+    "lab.py": "498572f95bfb60b86e31ba6fb9ec136e9cad889d8b4235c71d259ca0a7a9b6cf",
+    "receiver.py": "8c23e9265ff664ef79b4537fbe6a59c71732d688e71b990a8cf74b285d5f9f60",
+    "test_predicate.py": "74c44cb8eb9412d5e1367d73686aabb690f9e4cc8dea33aadb06fd9a987df9a1",
+    "verify_restore.py": "0241c8b20b4b4860a190423664878d4bec7b0fffd519d03026ed3996ef52baf8",
+    "weak_wrapper.py": "0cac6b78b585597948116187ca235ee8f2ecb3db2a6910d1be1ffd7f911ab456",
+    "workflow.py": "ab11101666ffb2ca2c5ee04c3fa412b8166683bea1ad99e7d2d45a6fd4388132"
+  },
+  "git_commit": null,
+  "git_note": "Standalone output artifact, not a Git working tree; exact source hashes recorded."
+}

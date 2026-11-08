@@ -1,0 +1,16 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\backup.py",
+    "--source",
+    "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r1-4925f38e\\sources\\intended.sqlite",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r1-4925f38e\\artifacts\\stale_artifact-r1-4925f38e.zip",
+    "--run-id",
+    "stale_artifact-r1-4925f38e"
+  ],
+  "started_at": "2026-11-08T00:05:04.817997+00:00",
+  "ended_at": "2026-11-08T00:05:04.881614+00:00",
+  "elapsed_seconds": 0.06199999999989814,
+  "exit": 0
+}

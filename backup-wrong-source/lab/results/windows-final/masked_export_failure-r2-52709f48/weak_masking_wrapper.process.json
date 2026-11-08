@@ -1,0 +1,21 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\weak_wrapper.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r2-52709f48",
+    "--",
+    "[PYTHON]",
+    "[LAB_ROOT]\\backup.py",
+    "--source",
+    "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r2-52709f48\\sources\\missing.sqlite",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r2-52709f48\\artifacts\\masked_export_failure-r2-52709f48.zip",
+    "--run-id",
+    "masked_export_failure-r2-52709f48"
+  ],
+  "started_at": "2026-11-08T00:05:07.389161+00:00",
+  "ended_at": "2026-11-08T00:05:07.507348+00:00",
+  "elapsed_seconds": 0.125,
+  "exit": 0
+}

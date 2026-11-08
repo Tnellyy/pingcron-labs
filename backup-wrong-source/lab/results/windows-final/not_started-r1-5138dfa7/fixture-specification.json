@@ -1,0 +1,41 @@
+{
+  "intended": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1041,
+        1,
+        1200
+      ],
+      [
+        1042,
+        1,
+        4500
+      ]
+    ],
+    "expected_transaction": 1042
+  },
+  "stale": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1041,
+        1,
+        1200
+      ]
+    ],
+    "expected_transaction": 1042
+  },
+  "writes_paused": true,
+  "origin": "deterministic synthetic fixture"
+}

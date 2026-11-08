@@ -1,0 +1,102 @@
+{
+  "run_id": "checkin_unavailable-r2-1fc2257f",
+  "case": "checkin_unavailable",
+  "started_at": "2026-11-08T00:05:09.011367+00:00",
+  "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f\\sources\\intended.sqlite",
+  "exporter_exit": 0,
+  "validator_exit": 0,
+  "weak_wrapper_exit": 0,
+  "wrapper_exit": 0,
+  "upload_status": 201,
+  "weak_checkin": {
+    "status": "failed",
+    "http_status": 503,
+    "at": "2026-11-08T00:05:09.098979+00:00",
+    "detail": "HTTP Error 503: Service Unavailable"
+  },
+  "validated_checkin": {
+    "status": "failed",
+    "http_status": 503,
+    "at": "2026-11-08T00:05:09.239297+00:00",
+    "detail": "HTTP Error 503: Service Unavailable"
+  },
+  "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f\\artifacts\\checkin_unavailable-r2-1fc2257f.zip",
+  "uploaded_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+  "upload_ack": {
+    "key": "checkin_unavailable-r2-1fc2257f.zip",
+    "received_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2"
+  },
+  "ended_at": "2026-11-08T00:05:09.239297+00:00",
+  "repetition": 2,
+  "verification": {
+    "at": "2026-11-08T00:05:09.178542+00:00",
+    "run_id": "checkin_unavailable-r2-1fc2257f",
+    "download_status": 200,
+    "digest_matches": true,
+    "artifact_run_matches": true,
+    "integrity_rows": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_rows": [],
+    "semantic_match": true,
+    "actual": {
+      "accounts": [
+        [
+          1,
+          "production"
+        ]
+      ],
+      "entries": [
+        [
+          1042,
+          1,
+          1200
+        ],
+        [
+          1043,
+          1,
+          4500
+        ]
+      ],
+      "expected_transaction_present": true,
+      "latest_transaction": 1043
+    },
+    "expected": {
+      "accounts": [
+        [
+          1,
+          "production"
+        ]
+      ],
+      "entries": [
+        [
+          1042,
+          1,
+          1200
+        ],
+        [
+          1043,
+          1,
+          4500
+        ]
+      ],
+      "expected_transaction": 1043
+    },
+    "source_read_probes": {
+      "python_open": "denied",
+      "sqlite_connect": "denied"
+    },
+    "guard": "Python audit hook, not an OS security sandbox",
+    "downloaded_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+    "expected_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+    "artifact_metadata": {
+      "run_id": "checkin_unavailable-r2-1fc2257f",
+      "created_at": "2026-11-08T00:05:09.068129+00:00",
+      "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f\\sources\\intended.sqlite"
+    },
+    "passed": true
+  },
+  "directory": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f"
+}

@@ -1,0 +1,1733 @@
+[
+  {
+    "run_id": "control-r1-d855a813",
+    "case": "control",
+    "started_at": "2026-11-08T00:05:03.595390+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 0,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 0,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:03.706371+00:00"
+    },
+    "validated_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:03.844378+00:00"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813\\artifacts\\control-r1-d855a813.zip",
+    "uploaded_sha256": "2a02478497b371e2f42d6607f71740aced58667a6af5470759add5cc3f5968dd",
+    "upload_ack": {
+      "key": "control-r1-d855a813.zip",
+      "received_sha256": "2a02478497b371e2f42d6607f71740aced58667a6af5470759add5cc3f5968dd"
+    },
+    "ended_at": "2026-11-08T00:05:03.844378+00:00",
+    "repetition": 1,
+    "verification": {
+      "at": "2026-11-08T00:05:03.784011+00:00",
+      "run_id": "control-r1-d855a813",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": true,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction_present": true,
+        "latest_transaction": 1042
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1042
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "2a02478497b371e2f42d6607f71740aced58667a6af5470759add5cc3f5968dd",
+      "expected_sha256": "2a02478497b371e2f42d6607f71740aced58667a6af5470759add5cc3f5968dd",
+      "artifact_metadata": {
+        "run_id": "control-r1-d855a813",
+        "created_at": "2026-11-08T00:05:03.664285+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813\\sources\\intended.sqlite"
+      },
+      "passed": true
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "wrong_source-r1-356342b4",
+    "case": "wrong_source",
+    "started_at": "2026-11-08T00:05:04.054273+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r1-356342b4\\sources\\stale.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:04.176540+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r1-356342b4\\artifacts\\wrong_source-r1-356342b4.zip",
+    "uploaded_sha256": "d39b06b109031cbc4ca78db2bf324d817a19260894ac62abdcacdf3380a8e2f5",
+    "upload_ack": {
+      "key": "wrong_source-r1-356342b4.zip",
+      "received_sha256": "d39b06b109031cbc4ca78db2bf324d817a19260894ac62abdcacdf3380a8e2f5"
+    },
+    "ended_at": "2026-11-08T00:05:04.292971+00:00",
+    "repetition": 1,
+    "verification": {
+      "at": "2026-11-08T00:05:04.249168+00:00",
+      "run_id": "wrong_source-r1-356342b4",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": false,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ]
+        ],
+        "expected_transaction_present": false,
+        "latest_transaction": 1041
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1042
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "d39b06b109031cbc4ca78db2bf324d817a19260894ac62abdcacdf3380a8e2f5",
+      "expected_sha256": "d39b06b109031cbc4ca78db2bf324d817a19260894ac62abdcacdf3380a8e2f5",
+      "artifact_metadata": {
+        "run_id": "wrong_source-r1-356342b4",
+        "created_at": "2026-11-08T00:05:04.124230+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r1-356342b4\\sources\\stale.sqlite"
+      },
+      "passed": false
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r1-356342b4",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "masked_export_failure-r1-9e4eba9a",
+    "case": "masked_export_failure",
+    "started_at": "2026-11-08T00:05:04.493849+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r1-9e4eba9a\\sources\\missing.sqlite",
+    "exporter_exit": 2,
+    "validator_exit": null,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": null,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:04.627201+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "ended_at": "2026-11-08T00:05:04.627201+00:00",
+    "repetition": 1,
+    "directory": "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r1-9e4eba9a",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "stale_artifact-r1-4925f38e",
+    "case": "stale_artifact",
+    "started_at": "2026-11-08T00:05:04.817997+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r1-4925f38e\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:04.979555+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r1-4925f38e\\artifacts\\previous.zip",
+    "uploaded_sha256": "cf0aec53b6405d7f333b7ace9136c4577cdeec71e15dc5fb458f560450e08349",
+    "upload_ack": {
+      "key": "stale_artifact-r1-4925f38e.zip",
+      "received_sha256": "cf0aec53b6405d7f333b7ace9136c4577cdeec71e15dc5fb458f560450e08349"
+    },
+    "ended_at": "2026-11-08T00:05:05.100224+00:00",
+    "repetition": 1,
+    "verification": {
+      "at": "2026-11-08T00:05:05.059002+00:00",
+      "run_id": "stale_artifact-r1-4925f38e",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": false,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": false,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ]
+        ],
+        "expected_transaction_present": false,
+        "latest_transaction": 1041
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1042
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "cf0aec53b6405d7f333b7ace9136c4577cdeec71e15dc5fb458f560450e08349",
+      "expected_sha256": "cf0aec53b6405d7f333b7ace9136c4577cdeec71e15dc5fb458f560450e08349",
+      "artifact_metadata": {
+        "run_id": "stale_artifact-r1-4925f38e-previous",
+        "created_at": "2026-11-08T00:05:04.936218+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r1-4925f38e\\sources\\stale.sqlite"
+      },
+      "passed": false
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r1-4925f38e",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "corrupt_transfer-r1-62e9c1a4",
+    "case": "corrupt_transfer",
+    "started_at": "2026-11-08T00:05:05.301789+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r1-62e9c1a4\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:05.413020+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r1-62e9c1a4\\artifacts\\corrupt_transfer-r1-62e9c1a4.zip",
+    "uploaded_sha256": "f1863bfc6da82ad7530d2f304db6c34c195b346009fc361864f95e94dfac8c34",
+    "upload_ack": {
+      "key": "corrupt_transfer-r1-62e9c1a4.zip",
+      "received_sha256": "f1863bfc6da82ad7530d2f304db6c34c195b346009fc361864f95e94dfac8c34"
+    },
+    "ended_at": "2026-11-08T00:05:05.524291+00:00",
+    "repetition": 1,
+    "verification": {
+      "at": "2026-11-08T00:05:05.491684+00:00",
+      "run_id": "corrupt_transfer-r1-62e9c1a4",
+      "download_status": 200,
+      "digest_matches": false,
+      "artifact_run_matches": null,
+      "integrity_rows": null,
+      "foreign_key_rows": null,
+      "semantic_match": null,
+      "actual": null,
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1042
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "f872bb3224936acd612dfb75a92c99d302133165ae9286d0c0f1c2402c515675",
+      "expected_sha256": "f1863bfc6da82ad7530d2f304db6c34c195b346009fc361864f95e94dfac8c34",
+      "passed": false,
+      "error": {
+        "type": "ValueError",
+        "detail": "Retrieved bytes do not match uploaded bytes"
+      }
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r1-62e9c1a4",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "lost_object-r1-7c2c8c2c",
+    "case": "lost_object",
+    "started_at": "2026-11-08T00:05:05.724528+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\lost_object-r1-7c2c8c2c\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:05.812153+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\lost_object-r1-7c2c8c2c\\artifacts\\lost_object-r1-7c2c8c2c.zip",
+    "uploaded_sha256": "8a89de7e5473e91117c6e3488014fead0f47f94746521ac701ea0362e220f128",
+    "upload_ack": {
+      "key": "lost_object-r1-7c2c8c2c.zip",
+      "received_sha256": "8a89de7e5473e91117c6e3488014fead0f47f94746521ac701ea0362e220f128"
+    },
+    "ended_at": "2026-11-08T00:05:05.926960+00:00",
+    "repetition": 1,
+    "verification": {
+      "at": "2026-11-08T00:05:05.899470+00:00",
+      "run_id": "lost_object-r1-7c2c8c2c",
+      "download_status": 404,
+      "digest_matches": null,
+      "artifact_run_matches": null,
+      "integrity_rows": null,
+      "foreign_key_rows": null,
+      "semantic_match": null,
+      "actual": null,
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1042
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "passed": false,
+      "error": {
+        "type": "HTTPError",
+        "detail": "HTTP Error 404: Not Found"
+      }
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\lost_object-r1-7c2c8c2c",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "not_started-r1-5138dfa7",
+    "case": "not_started",
+    "repetition": 1,
+    "exporter_exit": null,
+    "validator_exit": null,
+    "wrapper_exit": null,
+    "weak_wrapper_exit": null,
+    "upload_status": null,
+    "weak_checkin": {
+      "status": "not_attempted"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "invocation": "deliberately omitted by local harness; no cron simulation",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "checkin_unavailable-r1-cce416fa",
+    "case": "checkin_unavailable",
+    "started_at": "2026-11-08T00:05:06.138216+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 0,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 0,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "failed",
+      "http_status": 503,
+      "at": "2026-11-08T00:05:06.236150+00:00",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    "validated_checkin": {
+      "status": "failed",
+      "http_status": 503,
+      "at": "2026-11-08T00:05:06.350484+00:00",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\artifacts\\checkin_unavailable-r1-cce416fa.zip",
+    "uploaded_sha256": "5dfeeee3a655758d2e33eb826041228056ec25b95089ffa9018a4edf9a60877a",
+    "upload_ack": {
+      "key": "checkin_unavailable-r1-cce416fa.zip",
+      "received_sha256": "5dfeeee3a655758d2e33eb826041228056ec25b95089ffa9018a4edf9a60877a"
+    },
+    "ended_at": "2026-11-08T00:05:06.350484+00:00",
+    "repetition": 1,
+    "verification": {
+      "at": "2026-11-08T00:05:06.312756+00:00",
+      "run_id": "checkin_unavailable-r1-cce416fa",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": true,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction_present": true,
+        "latest_transaction": 1042
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1041,
+            1,
+            1200
+          ],
+          [
+            1042,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1042
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "5dfeeee3a655758d2e33eb826041228056ec25b95089ffa9018a4edf9a60877a",
+      "expected_sha256": "5dfeeee3a655758d2e33eb826041228056ec25b95089ffa9018a4edf9a60877a",
+      "artifact_metadata": {
+        "run_id": "checkin_unavailable-r1-cce416fa",
+        "created_at": "2026-11-08T00:05:06.195915+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\sources\\intended.sqlite"
+      },
+      "passed": true
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "control-r2-d8460dac",
+    "case": "control",
+    "started_at": "2026-11-08T00:05:06.550280+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r2-d8460dac\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 0,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 0,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:06.651519+00:00"
+    },
+    "validated_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:06.782281+00:00"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\control-r2-d8460dac\\artifacts\\control-r2-d8460dac.zip",
+    "uploaded_sha256": "505da67b72d0953ec060627d5b23c19532ae564c1cc96e85544d76eba7e0db10",
+    "upload_ack": {
+      "key": "control-r2-d8460dac.zip",
+      "received_sha256": "505da67b72d0953ec060627d5b23c19532ae564c1cc96e85544d76eba7e0db10"
+    },
+    "ended_at": "2026-11-08T00:05:06.782281+00:00",
+    "repetition": 2,
+    "verification": {
+      "at": "2026-11-08T00:05:06.727737+00:00",
+      "run_id": "control-r2-d8460dac",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": true,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction_present": true,
+        "latest_transaction": 1043
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1043
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "505da67b72d0953ec060627d5b23c19532ae564c1cc96e85544d76eba7e0db10",
+      "expected_sha256": "505da67b72d0953ec060627d5b23c19532ae564c1cc96e85544d76eba7e0db10",
+      "artifact_metadata": {
+        "run_id": "control-r2-d8460dac",
+        "created_at": "2026-11-08T00:05:06.606405+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r2-d8460dac\\sources\\intended.sqlite"
+      },
+      "passed": true
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\control-r2-d8460dac",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "wrong_source-r2-87118409",
+    "case": "wrong_source",
+    "started_at": "2026-11-08T00:05:06.991207+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r2-87118409\\sources\\stale.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:07.080799+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r2-87118409\\artifacts\\wrong_source-r2-87118409.zip",
+    "uploaded_sha256": "6610f1adb2cf117f2f46a565df6386c43b1ad802c00a2cf20961248a97617cef",
+    "upload_ack": {
+      "key": "wrong_source-r2-87118409.zip",
+      "received_sha256": "6610f1adb2cf117f2f46a565df6386c43b1ad802c00a2cf20961248a97617cef"
+    },
+    "ended_at": "2026-11-08T00:05:07.197130+00:00",
+    "repetition": 2,
+    "verification": {
+      "at": "2026-11-08T00:05:07.158713+00:00",
+      "run_id": "wrong_source-r2-87118409",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": false,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ]
+        ],
+        "expected_transaction_present": false,
+        "latest_transaction": 1042
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1043
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "6610f1adb2cf117f2f46a565df6386c43b1ad802c00a2cf20961248a97617cef",
+      "expected_sha256": "6610f1adb2cf117f2f46a565df6386c43b1ad802c00a2cf20961248a97617cef",
+      "artifact_metadata": {
+        "run_id": "wrong_source-r2-87118409",
+        "created_at": "2026-11-08T00:05:07.051070+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r2-87118409\\sources\\stale.sqlite"
+      },
+      "passed": false
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r2-87118409",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "masked_export_failure-r2-52709f48",
+    "case": "masked_export_failure",
+    "started_at": "2026-11-08T00:05:07.389161+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r2-52709f48\\sources\\missing.sqlite",
+    "exporter_exit": 2,
+    "validator_exit": null,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": null,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:07.526861+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "ended_at": "2026-11-08T00:05:07.527867+00:00",
+    "repetition": 2,
+    "directory": "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r2-52709f48",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "stale_artifact-r2-b08d8dc3",
+    "case": "stale_artifact",
+    "started_at": "2026-11-08T00:05:07.720251+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r2-b08d8dc3\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:07.893968+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r2-b08d8dc3\\artifacts\\previous.zip",
+    "uploaded_sha256": "edcc138732956181fc23b538d30e12c4b285dda84ddddbe59a3aa86c21d13680",
+    "upload_ack": {
+      "key": "stale_artifact-r2-b08d8dc3.zip",
+      "received_sha256": "edcc138732956181fc23b538d30e12c4b285dda84ddddbe59a3aa86c21d13680"
+    },
+    "ended_at": "2026-11-08T00:05:08.015100+00:00",
+    "repetition": 2,
+    "verification": {
+      "at": "2026-11-08T00:05:07.974548+00:00",
+      "run_id": "stale_artifact-r2-b08d8dc3",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": false,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": false,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ]
+        ],
+        "expected_transaction_present": false,
+        "latest_transaction": 1042
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1043
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "edcc138732956181fc23b538d30e12c4b285dda84ddddbe59a3aa86c21d13680",
+      "expected_sha256": "edcc138732956181fc23b538d30e12c4b285dda84ddddbe59a3aa86c21d13680",
+      "artifact_metadata": {
+        "run_id": "stale_artifact-r2-b08d8dc3-previous",
+        "created_at": "2026-11-08T00:05:07.843247+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r2-b08d8dc3\\sources\\stale.sqlite"
+      },
+      "passed": false
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r2-b08d8dc3",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "corrupt_transfer-r2-251780f0",
+    "case": "corrupt_transfer",
+    "started_at": "2026-11-08T00:05:08.219484+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r2-251780f0\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:08.310386+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r2-251780f0\\artifacts\\corrupt_transfer-r2-251780f0.zip",
+    "uploaded_sha256": "713327ad5ed66227c9ec6a8a34eb79a3f844cb2e6aedba80a1eafca7df3692f8",
+    "upload_ack": {
+      "key": "corrupt_transfer-r2-251780f0.zip",
+      "received_sha256": "713327ad5ed66227c9ec6a8a34eb79a3f844cb2e6aedba80a1eafca7df3692f8"
+    },
+    "ended_at": "2026-11-08T00:05:08.417295+00:00",
+    "repetition": 2,
+    "verification": {
+      "at": "2026-11-08T00:05:08.386394+00:00",
+      "run_id": "corrupt_transfer-r2-251780f0",
+      "download_status": 200,
+      "digest_matches": false,
+      "artifact_run_matches": null,
+      "integrity_rows": null,
+      "foreign_key_rows": null,
+      "semantic_match": null,
+      "actual": null,
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1043
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "f55e962e9465d5e13b6b07084c371db345afdf1b3537991bbe5032b11fd502f6",
+      "expected_sha256": "713327ad5ed66227c9ec6a8a34eb79a3f844cb2e6aedba80a1eafca7df3692f8",
+      "passed": false,
+      "error": {
+        "type": "ValueError",
+        "detail": "Retrieved bytes do not match uploaded bytes"
+      }
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r2-251780f0",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "lost_object-r2-ae1fac44",
+    "case": "lost_object",
+    "started_at": "2026-11-08T00:05:08.612073+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\lost_object-r2-ae1fac44\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:08.696254+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\lost_object-r2-ae1fac44\\artifacts\\lost_object-r2-ae1fac44.zip",
+    "uploaded_sha256": "a47cf7ffd6cb93f80a0a2e2b1191e7fc2c62ec721ed3cc3eed21d1d28b6952e1",
+    "upload_ack": {
+      "key": "lost_object-r2-ae1fac44.zip",
+      "received_sha256": "a47cf7ffd6cb93f80a0a2e2b1191e7fc2c62ec721ed3cc3eed21d1d28b6952e1"
+    },
+    "ended_at": "2026-11-08T00:05:08.799234+00:00",
+    "repetition": 2,
+    "verification": {
+      "at": "2026-11-08T00:05:08.772834+00:00",
+      "run_id": "lost_object-r2-ae1fac44",
+      "download_status": 404,
+      "digest_matches": null,
+      "artifact_run_matches": null,
+      "integrity_rows": null,
+      "foreign_key_rows": null,
+      "semantic_match": null,
+      "actual": null,
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1043
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "passed": false,
+      "error": {
+        "type": "HTTPError",
+        "detail": "HTTP Error 404: Not Found"
+      }
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\lost_object-r2-ae1fac44",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "not_started-r2-73e476c1",
+    "case": "not_started",
+    "repetition": 2,
+    "exporter_exit": null,
+    "validator_exit": null,
+    "wrapper_exit": null,
+    "weak_wrapper_exit": null,
+    "upload_status": null,
+    "weak_checkin": {
+      "status": "not_attempted"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "invocation": "deliberately omitted by local harness; no cron simulation",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "checkin_unavailable-r2-1fc2257f",
+    "case": "checkin_unavailable",
+    "started_at": "2026-11-08T00:05:09.011367+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 0,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 0,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "failed",
+      "http_status": 503,
+      "at": "2026-11-08T00:05:09.098979+00:00",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    "validated_checkin": {
+      "status": "failed",
+      "http_status": 503,
+      "at": "2026-11-08T00:05:09.239297+00:00",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f\\artifacts\\checkin_unavailable-r2-1fc2257f.zip",
+    "uploaded_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+    "upload_ack": {
+      "key": "checkin_unavailable-r2-1fc2257f.zip",
+      "received_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2"
+    },
+    "ended_at": "2026-11-08T00:05:09.239297+00:00",
+    "repetition": 2,
+    "verification": {
+      "at": "2026-11-08T00:05:09.178542+00:00",
+      "run_id": "checkin_unavailable-r2-1fc2257f",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": true,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction_present": true,
+        "latest_transaction": 1043
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1042,
+            1,
+            1200
+          ],
+          [
+            1043,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1043
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+      "expected_sha256": "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+      "artifact_metadata": {
+        "run_id": "checkin_unavailable-r2-1fc2257f",
+        "created_at": "2026-11-08T00:05:09.068129+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f\\sources\\intended.sqlite"
+      },
+      "passed": true
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "control-r3-72a4c0a1",
+    "case": "control",
+    "started_at": "2026-11-08T00:05:09.436217+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r3-72a4c0a1\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 0,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 0,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:09.536086+00:00"
+    },
+    "validated_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:09.654073+00:00"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\control-r3-72a4c0a1\\artifacts\\control-r3-72a4c0a1.zip",
+    "uploaded_sha256": "e8b058e957778127e62227e6670dd9745ae8c0c502b81b83574b7b5e6ef9a19c",
+    "upload_ack": {
+      "key": "control-r3-72a4c0a1.zip",
+      "received_sha256": "e8b058e957778127e62227e6670dd9745ae8c0c502b81b83574b7b5e6ef9a19c"
+    },
+    "ended_at": "2026-11-08T00:05:09.654073+00:00",
+    "repetition": 3,
+    "verification": {
+      "at": "2026-11-08T00:05:09.613684+00:00",
+      "run_id": "control-r3-72a4c0a1",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": true,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction_present": true,
+        "latest_transaction": 1044
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1044
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "e8b058e957778127e62227e6670dd9745ae8c0c502b81b83574b7b5e6ef9a19c",
+      "expected_sha256": "e8b058e957778127e62227e6670dd9745ae8c0c502b81b83574b7b5e6ef9a19c",
+      "artifact_metadata": {
+        "run_id": "control-r3-72a4c0a1",
+        "created_at": "2026-11-08T00:05:09.491249+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r3-72a4c0a1\\sources\\intended.sqlite"
+      },
+      "passed": true
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\control-r3-72a4c0a1",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "wrong_source-r3-56ae8222",
+    "case": "wrong_source",
+    "started_at": "2026-11-08T00:05:09.860078+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222\\sources\\stale.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:09.952533+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222\\artifacts\\wrong_source-r3-56ae8222.zip",
+    "uploaded_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1",
+    "upload_ack": {
+      "key": "wrong_source-r3-56ae8222.zip",
+      "received_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1"
+    },
+    "ended_at": "2026-11-08T00:05:10.068286+00:00",
+    "repetition": 3,
+    "verification": {
+      "at": "2026-11-08T00:05:10.028370+00:00",
+      "run_id": "wrong_source-r3-56ae8222",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": false,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ]
+        ],
+        "expected_transaction_present": false,
+        "latest_transaction": 1043
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1044
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1",
+      "expected_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1",
+      "artifact_metadata": {
+        "run_id": "wrong_source-r3-56ae8222",
+        "created_at": "2026-11-08T00:05:09.919667+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222\\sources\\stale.sqlite"
+      },
+      "passed": false
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "masked_export_failure-r3-59aebf2c",
+    "case": "masked_export_failure",
+    "started_at": "2026-11-08T00:05:10.264928+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r3-59aebf2c\\sources\\missing.sqlite",
+    "exporter_exit": 2,
+    "validator_exit": null,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": null,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:10.401136+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "ended_at": "2026-11-08T00:05:10.401136+00:00",
+    "repetition": 3,
+    "directory": "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r3-59aebf2c",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "stale_artifact-r3-266d6fec",
+    "case": "stale_artifact",
+    "started_at": "2026-11-08T00:05:10.592456+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r3-266d6fec\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:10.736016+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r3-266d6fec\\artifacts\\previous.zip",
+    "uploaded_sha256": "a4d9816ea9906013b8f6928544a21a86d27a9906fd0807b36424e3ab4b6743f3",
+    "upload_ack": {
+      "key": "stale_artifact-r3-266d6fec.zip",
+      "received_sha256": "a4d9816ea9906013b8f6928544a21a86d27a9906fd0807b36424e3ab4b6743f3"
+    },
+    "ended_at": "2026-11-08T00:05:10.847145+00:00",
+    "repetition": 3,
+    "verification": {
+      "at": "2026-11-08T00:05:10.808158+00:00",
+      "run_id": "stale_artifact-r3-266d6fec",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": false,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": false,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ]
+        ],
+        "expected_transaction_present": false,
+        "latest_transaction": 1043
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1044
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "a4d9816ea9906013b8f6928544a21a86d27a9906fd0807b36424e3ab4b6743f3",
+      "expected_sha256": "a4d9816ea9906013b8f6928544a21a86d27a9906fd0807b36424e3ab4b6743f3",
+      "artifact_metadata": {
+        "run_id": "stale_artifact-r3-266d6fec-previous",
+        "created_at": "2026-11-08T00:05:10.707354+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r3-266d6fec\\sources\\stale.sqlite"
+      },
+      "passed": false
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r3-266d6fec",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "corrupt_transfer-r3-9fb5a9e2",
+    "case": "corrupt_transfer",
+    "started_at": "2026-11-08T00:05:11.052579+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r3-9fb5a9e2\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:11.139250+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r3-9fb5a9e2\\artifacts\\corrupt_transfer-r3-9fb5a9e2.zip",
+    "uploaded_sha256": "646a0767d2a8722e95362ce183137609ced84207ce5cb854f61e6b7164336c4a",
+    "upload_ack": {
+      "key": "corrupt_transfer-r3-9fb5a9e2.zip",
+      "received_sha256": "646a0767d2a8722e95362ce183137609ced84207ce5cb854f61e6b7164336c4a"
+    },
+    "ended_at": "2026-11-08T00:05:11.248569+00:00",
+    "repetition": 3,
+    "verification": {
+      "at": "2026-11-08T00:05:11.216059+00:00",
+      "run_id": "corrupt_transfer-r3-9fb5a9e2",
+      "download_status": 200,
+      "digest_matches": false,
+      "artifact_run_matches": null,
+      "integrity_rows": null,
+      "foreign_key_rows": null,
+      "semantic_match": null,
+      "actual": null,
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1044
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "1be483b459f74f84d4ff29e6f66ad135ff481e703ece80f626aa09393a52bd40",
+      "expected_sha256": "646a0767d2a8722e95362ce183137609ced84207ce5cb854f61e6b7164336c4a",
+      "passed": false,
+      "error": {
+        "type": "ValueError",
+        "detail": "Retrieved bytes do not match uploaded bytes"
+      }
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r3-9fb5a9e2",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "lost_object-r3-eb60226f",
+    "case": "lost_object",
+    "started_at": "2026-11-08T00:05:11.441020+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 3,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 1,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "received",
+      "http_status": 200,
+      "at": "2026-11-08T00:05:11.527726+00:00"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f\\artifacts\\lost_object-r3-eb60226f.zip",
+    "uploaded_sha256": "4a646251aea6aa061db388d02a2a257f5372c3063c3d797d2e3f2049d76a5881",
+    "upload_ack": {
+      "key": "lost_object-r3-eb60226f.zip",
+      "received_sha256": "4a646251aea6aa061db388d02a2a257f5372c3063c3d797d2e3f2049d76a5881"
+    },
+    "ended_at": "2026-11-08T00:05:11.633539+00:00",
+    "repetition": 3,
+    "verification": {
+      "at": "2026-11-08T00:05:11.604357+00:00",
+      "run_id": "lost_object-r3-eb60226f",
+      "download_status": 404,
+      "digest_matches": null,
+      "artifact_run_matches": null,
+      "integrity_rows": null,
+      "foreign_key_rows": null,
+      "semantic_match": null,
+      "actual": null,
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1044
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "passed": false,
+      "error": {
+        "type": "HTTPError",
+        "detail": "HTTP Error 404: Not Found"
+      }
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "not_started-r3-0b2fdb47",
+    "case": "not_started",
+    "repetition": 3,
+    "exporter_exit": null,
+    "validator_exit": null,
+    "wrapper_exit": null,
+    "weak_wrapper_exit": null,
+    "upload_status": null,
+    "weak_checkin": {
+      "status": "not_attempted"
+    },
+    "validated_checkin": {
+      "status": "not_attempted"
+    },
+    "invocation": "deliberately omitted by local harness; no cron simulation",
+    "expectation_passed": true
+  },
+  {
+    "run_id": "checkin_unavailable-r3-02dfb3ea",
+    "case": "checkin_unavailable",
+    "started_at": "2026-11-08T00:05:11.850330+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r3-02dfb3ea\\sources\\intended.sqlite",
+    "exporter_exit": 0,
+    "validator_exit": 0,
+    "weak_wrapper_exit": 0,
+    "wrapper_exit": 0,
+    "upload_status": 201,
+    "weak_checkin": {
+      "status": "failed",
+      "http_status": 503,
+      "at": "2026-11-08T00:05:11.937591+00:00",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    "validated_checkin": {
+      "status": "failed",
+      "http_status": 503,
+      "at": "2026-11-08T00:05:12.070241+00:00",
+      "detail": "HTTP Error 503: Service Unavailable"
+    },
+    "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r3-02dfb3ea\\artifacts\\checkin_unavailable-r3-02dfb3ea.zip",
+    "uploaded_sha256": "183a68cd99833a92501b3b64b2c62cdf2e2c95f1f54a5d0ee9baee06c0d31922",
+    "upload_ack": {
+      "key": "checkin_unavailable-r3-02dfb3ea.zip",
+      "received_sha256": "183a68cd99833a92501b3b64b2c62cdf2e2c95f1f54a5d0ee9baee06c0d31922"
+    },
+    "ended_at": "2026-11-08T00:05:12.070241+00:00",
+    "repetition": 3,
+    "verification": {
+      "at": "2026-11-08T00:05:12.015937+00:00",
+      "run_id": "checkin_unavailable-r3-02dfb3ea",
+      "download_status": 200,
+      "digest_matches": true,
+      "artifact_run_matches": true,
+      "integrity_rows": [
+        [
+          "ok"
+        ]
+      ],
+      "foreign_key_rows": [],
+      "semantic_match": true,
+      "actual": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction_present": true,
+        "latest_transaction": 1044
+      },
+      "expected": {
+        "accounts": [
+          [
+            1,
+            "production"
+          ]
+        ],
+        "entries": [
+          [
+            1043,
+            1,
+            1200
+          ],
+          [
+            1044,
+            1,
+            4500
+          ]
+        ],
+        "expected_transaction": 1044
+      },
+      "source_read_probes": {
+        "python_open": "denied",
+        "sqlite_connect": "denied"
+      },
+      "guard": "Python audit hook, not an OS security sandbox",
+      "downloaded_sha256": "183a68cd99833a92501b3b64b2c62cdf2e2c95f1f54a5d0ee9baee06c0d31922",
+      "expected_sha256": "183a68cd99833a92501b3b64b2c62cdf2e2c95f1f54a5d0ee9baee06c0d31922",
+      "artifact_metadata": {
+        "run_id": "checkin_unavailable-r3-02dfb3ea",
+        "created_at": "2026-11-08T00:05:11.906199+00:00",
+        "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r3-02dfb3ea\\sources\\intended.sqlite"
+      },
+      "passed": true
+    },
+    "directory": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r3-02dfb3ea",
+    "expectation_passed": true
+  }
+]

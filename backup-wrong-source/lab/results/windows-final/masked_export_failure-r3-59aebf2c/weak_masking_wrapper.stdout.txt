@@ -1,0 +1,1 @@
+Ignoring exporter failure: deliberate weak comparator; child exit=2

@@ -1,0 +1,17 @@
+{
+  "run_id": "not_started-r2-73e476c1",
+  "case": "not_started",
+  "repetition": 2,
+  "exporter_exit": null,
+  "validator_exit": null,
+  "wrapper_exit": null,
+  "weak_wrapper_exit": null,
+  "upload_status": null,
+  "weak_checkin": {
+    "status": "not_attempted"
+  },
+  "validated_checkin": {
+    "status": "not_attempted"
+  },
+  "invocation": "deliberately omitted by local harness; no cron simulation"
+}

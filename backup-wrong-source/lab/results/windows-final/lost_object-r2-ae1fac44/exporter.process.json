@@ -1,0 +1,16 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\backup.py",
+    "--source",
+    "[LAB_ROOT]\\results\\windows-final\\lost_object-r2-ae1fac44\\sources\\intended.sqlite",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\lost_object-r2-ae1fac44\\artifacts\\lost_object-r2-ae1fac44.zip",
+    "--run-id",
+    "lost_object-r2-ae1fac44"
+  ],
+  "started_at": "2026-11-08T00:05:08.612073+00:00",
+  "ended_at": "2026-11-08T00:05:08.674453+00:00",
+  "elapsed_seconds": 0.06199999999989814,
+  "exit": 0
+}

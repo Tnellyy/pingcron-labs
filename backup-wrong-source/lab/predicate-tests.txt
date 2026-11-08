@@ -1,0 +1,9 @@
+test_control_passes_and_source_reads_are_denied (__main__.PredicateTests.test_control_passes_and_source_reads_are_denied) ... ok
+test_foreign_key_violation_is_not_an_integrity_check_failure (__main__.PredicateTests.test_foreign_key_violation_is_not_an_integrity_check_failure) ... ok
+test_object_keys_cannot_escape_receiver_storage (__main__.PredicateTests.test_object_keys_cannot_escape_receiver_storage) ... ok
+test_same_row_count_and_marker_but_wrong_amount_rejected (__main__.PredicateTests.test_same_row_count_and_marker_but_wrong_amount_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.843s
+
+OK

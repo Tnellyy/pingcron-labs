@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r2-b08d8dc3\\receiver",
+    "--mode",
+    "stale_artifact"
+  ],
+  "exit": 1,
+  "shutdown": "terminated by harness after workflow; not a fault"
+}

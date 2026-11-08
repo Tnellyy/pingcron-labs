@@ -1,0 +1,3 @@
+{"at": "2026-11-08T00:05:10.735013+00:00", "event": "upload_accepted", "key": "stale_artifact-r3-266d6fec.zip", "received_sha256": "a4d9816ea9906013b8f6928544a21a86d27a9906fd0807b36424e3ab4b6743f3", "bytes": 12820}
+{"at": "2026-11-08T00:05:10.736016+00:00", "event": "checkin_received", "run_id": "stale_artifact-r3-266d6fec", "policy": "weak_exit_upload_only"}
+{"at": "2026-11-08T00:05:10.829554+00:00", "event": "download", "key": "stale_artifact-r3-266d6fec.zip", "sha256": "a4d9816ea9906013b8f6928544a21a86d27a9906fd0807b36424e3ab4b6743f3"}

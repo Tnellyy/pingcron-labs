@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\workflow.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\corrupt_transfer-r1-62e9c1a4",
+    "--case",
+    "corrupt_transfer",
+    "--run-id",
+    "corrupt_transfer-r1-62e9c1a4",
+    "--receiver",
+    "http://127.0.0.1:57169"
+  ],
+  "started_at": "2026-11-08T00:05:05.226422+00:00",
+  "ended_at": "2026-11-08T00:05:05.533478+00:00",
+  "elapsed_seconds": 0.31199999999989814,
+  "exit": 1
+}

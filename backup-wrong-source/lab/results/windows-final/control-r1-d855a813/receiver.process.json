@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813\\receiver",
+    "--mode",
+    "control"
+  ],
+  "exit": 1,
+  "shutdown": "terminated by harness after workflow; not a fault"
+}

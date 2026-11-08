@@ -1,0 +1,16 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\backup.py",
+    "--source",
+    "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r1-9e4eba9a\\sources\\missing.sqlite",
+    "--output",
+    "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r1-9e4eba9a\\artifacts\\masked_export_failure-r1-9e4eba9a.zip",
+    "--run-id",
+    "masked_export_failure-r1-9e4eba9a"
+  ],
+  "started_at": "2026-11-08T00:05:04.541500+00:00",
+  "ended_at": "2026-11-08T00:05:04.599408+00:00",
+  "elapsed_seconds": 0.06300000000010186,
+  "exit": 2
+}

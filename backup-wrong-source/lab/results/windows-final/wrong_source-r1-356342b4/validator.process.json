@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\wrong_source-r1-356342b4",
+    "--url",
+    "http://127.0.0.1:57156/objects/wrong_source-r1-356342b4.zip",
+    "--sha256",
+    "d39b06b109031cbc4ca78db2bf324d817a19260894ac62abdcacdf3380a8e2f5",
+    "--run-id",
+    "wrong_source-r1-356342b4"
+  ],
+  "started_at": "2026-11-08T00:05:04.176540+00:00",
+  "ended_at": "2026-11-08T00:05:04.292971+00:00",
+  "elapsed_seconds": 0.10900000000037835,
+  "exit": 3
+}

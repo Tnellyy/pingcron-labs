@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\workflow.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa",
+    "--case",
+    "checkin_unavailable",
+    "--run-id",
+    "checkin_unavailable-r1-cce416fa",
+    "--receiver",
+    "http://127.0.0.1:57177"
+  ],
+  "started_at": "2026-11-08T00:05:06.064824+00:00",
+  "ended_at": "2026-11-08T00:05:06.361447+00:00",
+  "elapsed_seconds": 0.2970000000004802,
+  "exit": 0
+}

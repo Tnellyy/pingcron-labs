@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\workflow.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f",
+    "--case",
+    "lost_object",
+    "--run-id",
+    "lost_object-r3-eb60226f",
+    "--receiver",
+    "http://127.0.0.1:53770"
+  ],
+  "started_at": "2026-11-08T00:05:11.372095+00:00",
+  "ended_at": "2026-11-08T00:05:11.641060+00:00",
+  "elapsed_seconds": 0.2649999999994179,
+  "exit": 1
+}

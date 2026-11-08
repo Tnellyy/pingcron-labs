@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\control-r2-d8460dac",
+    "--url",
+    "http://127.0.0.1:57182/objects/control-r2-d8460dac.zip",
+    "--sha256",
+    "505da67b72d0953ec060627d5b23c19532ae564c1cc96e85544d76eba7e0db10",
+    "--run-id",
+    "control-r2-d8460dac"
+  ],
+  "started_at": "2026-11-08T00:05:06.651519+00:00",
+  "ended_at": "2026-11-08T00:05:06.766402+00:00",
+  "elapsed_seconds": 0.10899999999855936,
+  "exit": 0
+}

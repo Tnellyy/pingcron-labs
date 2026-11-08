@@ -1,0 +1,93 @@
+{
+  "run_id": "wrong_source-r3-56ae8222",
+  "case": "wrong_source",
+  "started_at": "2026-11-08T00:05:09.860078+00:00",
+  "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222\\sources\\stale.sqlite",
+  "exporter_exit": 0,
+  "validator_exit": 3,
+  "weak_wrapper_exit": 0,
+  "wrapper_exit": 1,
+  "upload_status": 201,
+  "weak_checkin": {
+    "status": "received",
+    "http_status": 200,
+    "at": "2026-11-08T00:05:09.952533+00:00"
+  },
+  "validated_checkin": {
+    "status": "not_attempted"
+  },
+  "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222\\artifacts\\wrong_source-r3-56ae8222.zip",
+  "uploaded_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1",
+  "upload_ack": {
+    "key": "wrong_source-r3-56ae8222.zip",
+    "received_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1"
+  },
+  "ended_at": "2026-11-08T00:05:10.068286+00:00",
+  "repetition": 3,
+  "verification": {
+    "at": "2026-11-08T00:05:10.028370+00:00",
+    "run_id": "wrong_source-r3-56ae8222",
+    "download_status": 200,
+    "digest_matches": true,
+    "artifact_run_matches": true,
+    "integrity_rows": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_rows": [],
+    "semantic_match": false,
+    "actual": {
+      "accounts": [
+        [
+          1,
+          "production"
+        ]
+      ],
+      "entries": [
+        [
+          1043,
+          1,
+          1200
+        ]
+      ],
+      "expected_transaction_present": false,
+      "latest_transaction": 1043
+    },
+    "expected": {
+      "accounts": [
+        [
+          1,
+          "production"
+        ]
+      ],
+      "entries": [
+        [
+          1043,
+          1,
+          1200
+        ],
+        [
+          1044,
+          1,
+          4500
+        ]
+      ],
+      "expected_transaction": 1044
+    },
+    "source_read_probes": {
+      "python_open": "denied",
+      "sqlite_connect": "denied"
+    },
+    "guard": "Python audit hook, not an OS security sandbox",
+    "downloaded_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1",
+    "expected_sha256": "de536c69bf51319966b773bcc0d05b381406d7fc0248c5088075245c5b07b1c1",
+    "artifact_metadata": {
+      "run_id": "wrong_source-r3-56ae8222",
+      "created_at": "2026-11-08T00:05:09.919667+00:00",
+      "configured_source": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222\\sources\\stale.sqlite"
+    },
+    "passed": false
+  },
+  "directory": "[LAB_ROOT]\\results\\windows-final\\wrong_source-r3-56ae8222"
+}

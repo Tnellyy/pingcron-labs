@@ -1,0 +1,70 @@
+{
+  "at": "2026-11-08T00:05:06.312756+00:00",
+  "run_id": "checkin_unavailable-r1-cce416fa",
+  "download_status": 200,
+  "digest_matches": true,
+  "artifact_run_matches": true,
+  "integrity_rows": [
+    [
+      "ok"
+    ]
+  ],
+  "foreign_key_rows": [],
+  "semantic_match": true,
+  "actual": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1041,
+        1,
+        1200
+      ],
+      [
+        1042,
+        1,
+        4500
+      ]
+    ],
+    "expected_transaction_present": true,
+    "latest_transaction": 1042
+  },
+  "expected": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1041,
+        1,
+        1200
+      ],
+      [
+        1042,
+        1,
+        4500
+      ]
+    ],
+    "expected_transaction": 1042
+  },
+  "source_read_probes": {
+    "python_open": "denied",
+    "sqlite_connect": "denied"
+  },
+  "guard": "Python audit hook, not an OS security sandbox",
+  "downloaded_sha256": "5dfeeee3a655758d2e33eb826041228056ec25b95089ffa9018a4edf9a60877a",
+  "expected_sha256": "5dfeeee3a655758d2e33eb826041228056ec25b95089ffa9018a4edf9a60877a",
+  "artifact_metadata": {
+    "run_id": "checkin_unavailable-r1-cce416fa",
+    "created_at": "2026-11-08T00:05:06.195915+00:00",
+    "configured_source": "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\sources\\intended.sqlite"
+  },
+  "passed": true
+}

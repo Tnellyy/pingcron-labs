@@ -1,0 +1,1 @@
+{"exported": "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813\\artifacts\\control-r1-d855a813.zip", "metadata": {"run_id": "control-r1-d855a813", "created_at": "2026-11-08T00:05:03.664285+00:00", "configured_source": "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813\\sources\\intended.sqlite"}}

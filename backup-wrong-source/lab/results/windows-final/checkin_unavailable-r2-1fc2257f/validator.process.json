@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r2-1fc2257f",
+    "--url",
+    "http://127.0.0.1:57208/objects/checkin_unavailable-r2-1fc2257f.zip",
+    "--sha256",
+    "c7835f960564af8836d61003a0362640aefd2ae5c36f14e176825c8a6ca1bcd2",
+    "--run-id",
+    "checkin_unavailable-r2-1fc2257f"
+  ],
+  "started_at": "2026-11-08T00:05:09.098979+00:00",
+  "ended_at": "2026-11-08T00:05:09.229094+00:00",
+  "elapsed_seconds": 0.125,
+  "exit": 0
+}

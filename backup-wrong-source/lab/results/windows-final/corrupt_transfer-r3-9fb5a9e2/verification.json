@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-08T00:05:11.216059+00:00",
+  "run_id": "corrupt_transfer-r3-9fb5a9e2",
+  "download_status": 200,
+  "digest_matches": false,
+  "artifact_run_matches": null,
+  "integrity_rows": null,
+  "foreign_key_rows": null,
+  "semantic_match": null,
+  "actual": null,
+  "expected": {
+    "accounts": [
+      [
+        1,
+        "production"
+      ]
+    ],
+    "entries": [
+      [
+        1043,
+        1,
+        1200
+      ],
+      [
+        1044,
+        1,
+        4500
+      ]
+    ],
+    "expected_transaction": 1044
+  },
+  "source_read_probes": {
+    "python_open": "denied",
+    "sqlite_connect": "denied"
+  },
+  "guard": "Python audit hook, not an OS security sandbox",
+  "downloaded_sha256": "1be483b459f74f84d4ff29e6f66ad135ff481e703ece80f626aa09393a52bd40",
+  "expected_sha256": "646a0767d2a8722e95362ce183137609ced84207ce5cb854f61e6b7164336c4a",
+  "passed": false,
+  "error": {
+    "type": "ValueError",
+    "detail": "Retrieved bytes do not match uploaded bytes"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\control-r1-d855a813",
+    "--url",
+    "http://127.0.0.1:57150/objects/control-r1-d855a813.zip",
+    "--sha256",
+    "2a02478497b371e2f42d6607f71740aced58667a6af5470759add5cc3f5968dd",
+    "--run-id",
+    "control-r1-d855a813"
+  ],
+  "started_at": "2026-11-08T00:05:03.706371+00:00",
+  "ended_at": "2026-11-08T00:05:03.822949+00:00",
+  "elapsed_seconds": 0.10999999999876309,
+  "exit": 0
+}

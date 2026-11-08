@@ -1,0 +1,4 @@
+{"at": "2026-11-08T00:05:08.309385+00:00", "event": "upload_accepted", "key": "corrupt_transfer-r2-251780f0.zip", "received_sha256": "713327ad5ed66227c9ec6a8a34eb79a3f844cb2e6aedba80a1eafca7df3692f8", "bytes": 12818}
+{"at": "2026-11-08T00:05:08.309385+00:00", "event": "fault_mutated_stored_bytes", "key": "corrupt_transfer-r2-251780f0.zip"}
+{"at": "2026-11-08T00:05:08.310386+00:00", "event": "checkin_received", "run_id": "corrupt_transfer-r2-251780f0", "policy": "weak_exit_upload_only"}
+{"at": "2026-11-08T00:05:08.406231+00:00", "event": "download", "key": "corrupt_transfer-r2-251780f0.zip", "sha256": "f55e962e9465d5e13b6b07084c371db345afdf1b3537991bbe5032b11fd502f6"}

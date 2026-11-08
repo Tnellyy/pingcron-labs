@@ -1,0 +1,17 @@
+run_id,case,repetition,policy,exporter_exit,validator_exit,policy_exit,upload_status,checkin_delivery_status,digest_matches,artifact_run_matches,integrity_rows,foreign_key_rows,semantic_match,expectation_passed
+control-r1-f837eecd,control,1,weak,0,0,0,201,received,true,true,"[[""ok""]]",[],true,True
+control-r1-f837eecd,control,1,validated,0,0,0,201,received,true,true,"[[""ok""]]",[],true,True
+wrong_source-r1-c1a8892f,wrong_source,1,weak,0,3,0,201,received,true,true,"[[""ok""]]",[],false,True
+wrong_source-r1-c1a8892f,wrong_source,1,validated,0,3,1,201,not_attempted,true,true,"[[""ok""]]",[],false,True
+masked_export_failure-r1-4dee0d4c,masked_export_failure,1,weak,2,,0,,received,null,null,null,null,null,True
+masked_export_failure-r1-4dee0d4c,masked_export_failure,1,validated,2,,1,,not_attempted,null,null,null,null,null,True
+stale_artifact-r1-9ad6c535,stale_artifact,1,weak,0,3,0,201,received,true,false,"[[""ok""]]",[],false,True
+stale_artifact-r1-9ad6c535,stale_artifact,1,validated,0,3,1,201,not_attempted,true,false,"[[""ok""]]",[],false,True
+corrupt_transfer-r1-1a8ef823,corrupt_transfer,1,weak,0,3,0,201,received,false,null,null,null,null,True
+corrupt_transfer-r1-1a8ef823,corrupt_transfer,1,validated,0,3,1,201,not_attempted,false,null,null,null,null,True
+lost_object-r1-064fc273,lost_object,1,weak,0,3,0,201,received,null,null,null,null,null,True
+lost_object-r1-064fc273,lost_object,1,validated,0,3,1,201,not_attempted,null,null,null,null,null,True
+not_started-r1-1104e468,not_started,1,weak,,,,,not_attempted,null,null,null,null,null,True
+not_started-r1-1104e468,not_started,1,validated,,,,,not_attempted,null,null,null,null,null,True
+checkin_unavailable-r1-0706b271,checkin_unavailable,1,weak,0,0,0,201,failed,true,true,"[[""ok""]]",[],true,True
+checkin_unavailable-r1-0706b271,checkin_unavailable,1,validated,0,0,0,201,failed,true,true,"[[""ok""]]",[],true,True

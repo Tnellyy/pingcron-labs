@@ -1,0 +1,70 @@
+{
+  "run_id": "lost_object-r3-eb60226f",
+  "case": "lost_object",
+  "started_at": "2026-11-08T00:05:11.441020+00:00",
+  "configured_source": "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f\\sources\\intended.sqlite",
+  "exporter_exit": 0,
+  "validator_exit": 3,
+  "weak_wrapper_exit": 0,
+  "wrapper_exit": 1,
+  "upload_status": 201,
+  "weak_checkin": {
+    "status": "received",
+    "http_status": 200,
+    "at": "2026-11-08T00:05:11.527726+00:00"
+  },
+  "validated_checkin": {
+    "status": "not_attempted"
+  },
+  "selected_artifact": "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f\\artifacts\\lost_object-r3-eb60226f.zip",
+  "uploaded_sha256": "4a646251aea6aa061db388d02a2a257f5372c3063c3d797d2e3f2049d76a5881",
+  "upload_ack": {
+    "key": "lost_object-r3-eb60226f.zip",
+    "received_sha256": "4a646251aea6aa061db388d02a2a257f5372c3063c3d797d2e3f2049d76a5881"
+  },
+  "ended_at": "2026-11-08T00:05:11.633539+00:00",
+  "repetition": 3,
+  "verification": {
+    "at": "2026-11-08T00:05:11.604357+00:00",
+    "run_id": "lost_object-r3-eb60226f",
+    "download_status": 404,
+    "digest_matches": null,
+    "artifact_run_matches": null,
+    "integrity_rows": null,
+    "foreign_key_rows": null,
+    "semantic_match": null,
+    "actual": null,
+    "expected": {
+      "accounts": [
+        [
+          1,
+          "production"
+        ]
+      ],
+      "entries": [
+        [
+          1043,
+          1,
+          1200
+        ],
+        [
+          1044,
+          1,
+          4500
+        ]
+      ],
+      "expected_transaction": 1044
+    },
+    "source_read_probes": {
+      "python_open": "denied",
+      "sqlite_connect": "denied"
+    },
+    "guard": "Python audit hook, not an OS security sandbox",
+    "passed": false,
+    "error": {
+      "type": "HTTPError",
+      "detail": "HTTP Error 404: Not Found"
+    }
+  },
+  "directory": "[LAB_ROOT]\\results\\windows-final\\lost_object-r3-eb60226f"
+}

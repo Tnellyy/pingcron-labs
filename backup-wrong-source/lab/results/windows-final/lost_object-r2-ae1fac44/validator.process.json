@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\lost_object-r2-ae1fac44",
+    "--url",
+    "http://127.0.0.1:57204/objects/lost_object-r2-ae1fac44.zip",
+    "--sha256",
+    "a47cf7ffd6cb93f80a0a2e2b1191e7fc2c62ec721ed3cc3eed21d1d28b6952e1",
+    "--run-id",
+    "lost_object-r2-ae1fac44"
+  ],
+  "started_at": "2026-11-08T00:05:08.696254+00:00",
+  "ended_at": "2026-11-08T00:05:08.799234+00:00",
+  "elapsed_seconds": 0.10900000000037835,
+  "exit": 3
+}

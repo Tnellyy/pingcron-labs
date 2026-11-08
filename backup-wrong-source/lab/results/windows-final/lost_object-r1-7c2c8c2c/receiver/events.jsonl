@@ -1,0 +1,4 @@
+{"at": "2026-11-08T00:05:05.809882+00:00", "event": "upload_accepted", "key": "lost_object-r1-7c2c8c2c.zip", "received_sha256": "8a89de7e5473e91117c6e3488014fead0f47f94746521ac701ea0362e220f128", "bytes": 12808}
+{"at": "2026-11-08T00:05:05.811149+00:00", "event": "fault_removed_stored_object", "key": "lost_object-r1-7c2c8c2c.zip"}
+{"at": "2026-11-08T00:05:05.812153+00:00", "event": "checkin_received", "run_id": "lost_object-r1-7c2c8c2c", "policy": "weak_exit_upload_only"}
+{"at": "2026-11-08T00:05:05.916374+00:00", "event": "download_missing", "key": "lost_object-r1-7c2c8c2c.zip"}

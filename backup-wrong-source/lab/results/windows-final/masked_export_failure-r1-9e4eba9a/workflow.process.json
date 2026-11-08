@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\workflow.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\masked_export_failure-r1-9e4eba9a",
+    "--case",
+    "masked_export_failure",
+    "--run-id",
+    "masked_export_failure-r1-9e4eba9a",
+    "--receiver",
+    "http://127.0.0.1:57161"
+  ],
+  "started_at": "2026-11-08T00:05:04.417061+00:00",
+  "ended_at": "2026-11-08T00:05:04.634691+00:00",
+  "elapsed_seconds": 0.21899999999914144,
+  "exit": 1
+}

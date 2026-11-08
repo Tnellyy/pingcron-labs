@@ -1,0 +1,18 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\verify_restore.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\stale_artifact-r2-b08d8dc3",
+    "--url",
+    "http://127.0.0.1:57195/objects/stale_artifact-r2-b08d8dc3.zip",
+    "--sha256",
+    "edcc138732956181fc23b538d30e12c4b285dda84ddddbe59a3aa86c21d13680",
+    "--run-id",
+    "stale_artifact-r2-b08d8dc3"
+  ],
+  "started_at": "2026-11-08T00:05:07.893968+00:00",
+  "ended_at": "2026-11-08T00:05:08.015100+00:00",
+  "elapsed_seconds": 0.10899999999855936,
+  "exit": 3
+}

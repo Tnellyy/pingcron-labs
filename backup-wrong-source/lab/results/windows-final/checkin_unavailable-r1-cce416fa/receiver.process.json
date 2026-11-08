@@ -1,0 +1,12 @@
+{
+  "command": [
+    "[PYTHON]",
+    "[LAB_ROOT]\\receiver.py",
+    "--root",
+    "[LAB_ROOT]\\results\\windows-final\\checkin_unavailable-r1-cce416fa\\receiver",
+    "--mode",
+    "checkin_unavailable"
+  ],
+  "exit": 1,
+  "shutdown": "terminated by harness after workflow; not a fault"
+}
