@@ -1,0 +1,148 @@
+{
+  "scope": "Reviewer-only broken variants. Original source unchanged. No model/MCP/OAuth executed.",
+  "original_sources": {
+    "lab.py": "e476639cadef76c62a4da6999541fd511b91e06c8c6a51c8d72b0a1d5ad1aa12",
+    "receiver.py": "1a1b1ec35dd3f7c6bd4a8be111741e8536cd99f1c29b984c1527ea4a75488fce"
+  },
+  "variants": [
+    {
+      "name": "scope_check_removed",
+      "mutated_receiver_sha256": "0d0faf2da0f21a85d6a9eb7fa2dd13a144f8e31696749498b02c94c894041610",
+      "runs": [
+        {
+          "case": "read_control",
+          "exit_code": 0,
+          "http_status": 200,
+          "passed": true,
+          "failed_checks": [],
+          "response": {
+            "resource": "resource-A",
+            "value": "A-private-fixture",
+            "version": 0
+          },
+          "resources": [
+            {
+              "id": "resource-A",
+              "tenant": "tenant-A",
+              "value": "A-private-fixture",
+              "version": 0
+            },
+            {
+              "id": "resource-B",
+              "tenant": "tenant-B",
+              "value": "B-private-fixture",
+              "version": 0
+            }
+          ],
+          "mutations": []
+        },
+        {
+          "case": "scoped_write_denied",
+          "exit_code": 1,
+          "http_status": 200,
+          "passed": false,
+          "failed_checks": [
+            "audit_matches_plan",
+            "body_matches_plan",
+            "denials_have_no_resource_payload",
+            "durable_mutations_match_plan",
+            "durable_resources_match_plan",
+            "status_matches_plan"
+          ],
+          "response": {
+            "resource": "resource-A",
+            "value": "changed-by-fixture",
+            "version": 1
+          },
+          "resources": [
+            {
+              "id": "resource-A",
+              "tenant": "tenant-A",
+              "value": "changed-by-fixture",
+              "version": 1
+            },
+            {
+              "id": "resource-B",
+              "tenant": "tenant-B",
+              "value": "B-private-fixture",
+              "version": 0
+            }
+          ],
+          "mutations": [
+            {
+              "id": 1,
+              "new_value": "changed-by-fixture",
+              "old_value": "A-private-fixture",
+              "resource": "resource-A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "tenant_read_check_removed",
+      "mutated_receiver_sha256": "bba09900c489342949aeae65d9b6f0daa72c09175d4b325955bbd937ac9001a9",
+      "runs": [
+        {
+          "case": "read_control",
+          "exit_code": 0,
+          "http_status": 200,
+          "passed": true,
+          "failed_checks": [],
+          "response": {
+            "resource": "resource-A",
+            "value": "A-private-fixture",
+            "version": 0
+          },
+          "resources": [
+            {
+              "id": "resource-A",
+              "tenant": "tenant-A",
+              "value": "A-private-fixture",
+              "version": 0
+            },
+            {
+              "id": "resource-B",
+              "tenant": "tenant-B",
+              "value": "B-private-fixture",
+              "version": 0
+            }
+          ],
+          "mutations": []
+        },
+        {
+          "case": "tenant_read_denied",
+          "exit_code": 1,
+          "http_status": 200,
+          "passed": false,
+          "failed_checks": [
+            "audit_matches_plan",
+            "body_matches_plan",
+            "denials_have_no_resource_payload",
+            "status_matches_plan"
+          ],
+          "response": {
+            "resource": "resource-B",
+            "value": "B-private-fixture",
+            "version": 0
+          },
+          "resources": [
+            {
+              "id": "resource-A",
+              "tenant": "tenant-A",
+              "value": "A-private-fixture",
+              "version": 0
+            },
+            {
+              "id": "resource-B",
+              "tenant": "tenant-B",
+              "value": "B-private-fixture",
+              "version": 0
+            }
+          ],
+          "mutations": []
+        }
+      ]
+    }
+  ]
+}

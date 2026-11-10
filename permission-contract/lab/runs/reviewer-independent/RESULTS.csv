@@ -1,0 +1,9 @@
+case,run_id,passed,status,mutations,value_A,value_B
+read_control,read_control-r1-eda1e7f3,True,200,0,A-private-fixture,B-private-fixture
+broad_prompt_write,broad_prompt_write-r1-00c64166,True,200,1,changed-by-fixture,B-private-fixture
+scoped_write_denied,scoped_write_denied-r1-c37b2696,True,403,0,A-private-fixture,B-private-fixture
+tenant_read_denied,tenant_read_denied-r1-58ca7565,True,403,0,A-private-fixture,B-private-fixture
+claimed_scope_denied,claimed_scope_denied-r1-4caca9ca,True,403,0,A-private-fixture,B-private-fixture
+hint_does_not_restrict,hint_does_not_restrict-r1-efc3b7fb,True,200,1,changed-by-fixture,B-private-fixture
+hint_cannot_elevate,hint_cannot_elevate-r1-0734f40f,True,403,0,A-private-fixture,B-private-fixture
+unknown_credential,unknown_credential-r1-23535f26,True,401,0,A-private-fixture,B-private-fixture

@@ -1,0 +1,1193 @@
+[
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "read",
+          "decision": "allowed",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "read_control",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\read_control-r1-eda1e7f3\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\read_control-r1-eda1e7f3\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "resource": "resource-A",
+        "value": "A-private-fixture",
+        "version": 0
+      },
+      "body_raw": "{\"resource\": \"resource-A\", \"value\": \"A-private-fixture\", \"version\": 0}",
+      "headers": {
+        "Content-Length": "70",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:42 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 200
+    },
+    "passed": true,
+    "plan": {
+      "case": "read_control",
+      "expected_body": {
+        "resource": "resource-A",
+        "value": "A-private-fixture",
+        "version": 0
+      },
+      "expected_decision": "allowed",
+      "expected_mutations": [],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 200,
+      "request": {
+        "action": "read",
+        "resource": "resource-A"
+      },
+      "run_id": "read_control-r1-eda1e7f3",
+      "synthetic_credential": "synthetic-reader-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 9896,
+    "repetition": 1,
+    "run_id": "read_control-r1-eda1e7f3"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "write",
+          "decision": "allowed",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [
+        {
+          "id": 1,
+          "new_value": "changed-by-fixture",
+          "old_value": "A-private-fixture",
+          "resource": "resource-A"
+        }
+      ],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "changed-by-fixture",
+          "version": 1
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "broad_prompt_write",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\broad_prompt_write-r1-00c64166\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\broad_prompt_write-r1-00c64166\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "resource": "resource-A",
+        "value": "changed-by-fixture",
+        "version": 1
+      },
+      "body_raw": "{\"resource\": \"resource-A\", \"value\": \"changed-by-fixture\", \"version\": 1}",
+      "headers": {
+        "Content-Length": "71",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:42 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 200
+    },
+    "passed": true,
+    "plan": {
+      "case": "broad_prompt_write",
+      "expected_body": {
+        "resource": "resource-A",
+        "value": "changed-by-fixture",
+        "version": 1
+      },
+      "expected_decision": "allowed",
+      "expected_mutations": [
+        {
+          "id": 1,
+          "new_value": "changed-by-fixture",
+          "old_value": "A-private-fixture",
+          "resource": "resource-A"
+        }
+      ],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "changed-by-fixture",
+          "version": 1
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 200,
+      "request": {
+        "action": "write",
+        "client_metadata": {
+          "prompt_intent": "read_only"
+        },
+        "resource": "resource-A",
+        "value": "changed-by-fixture"
+      },
+      "run_id": "broad_prompt_write-r1-00c64166",
+      "synthetic_credential": "synthetic-broad-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 6188,
+    "repetition": 1,
+    "run_id": "broad_prompt_write-r1-00c64166"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "write",
+          "decision": "scope_denied",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "scoped_write_denied",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\scoped_write_denied-r1-c37b2696\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\scoped_write_denied-r1-c37b2696\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "error": "forbidden"
+      },
+      "body_raw": "{\"error\": \"forbidden\"}",
+      "headers": {
+        "Content-Length": "22",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:43 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 403
+    },
+    "passed": true,
+    "plan": {
+      "case": "scoped_write_denied",
+      "expected_body": {
+        "error": "forbidden"
+      },
+      "expected_decision": "scope_denied",
+      "expected_mutations": [],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 403,
+      "request": {
+        "action": "write",
+        "client_metadata": {
+          "prompt_intent": "read_only"
+        },
+        "resource": "resource-A",
+        "value": "changed-by-fixture"
+      },
+      "run_id": "scoped_write_denied-r1-c37b2696",
+      "synthetic_credential": "synthetic-reader-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 560,
+    "repetition": 1,
+    "run_id": "scoped_write_denied-r1-c37b2696"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "read",
+          "decision": "resource_denied",
+          "id": 1,
+          "resource": "resource-B"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "tenant_read_denied",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\tenant_read_denied-r1-58ca7565\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\tenant_read_denied-r1-58ca7565\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "error": "forbidden"
+      },
+      "body_raw": "{\"error\": \"forbidden\"}",
+      "headers": {
+        "Content-Length": "22",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:43 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 403
+    },
+    "passed": true,
+    "plan": {
+      "case": "tenant_read_denied",
+      "expected_body": {
+        "error": "forbidden"
+      },
+      "expected_decision": "resource_denied",
+      "expected_mutations": [],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 403,
+      "request": {
+        "action": "read",
+        "resource": "resource-B"
+      },
+      "run_id": "tenant_read_denied-r1-58ca7565",
+      "synthetic_credential": "synthetic-reader-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 35452,
+    "repetition": 1,
+    "run_id": "tenant_read_denied-r1-58ca7565"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "write",
+          "decision": "scope_denied",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "claimed_scope_denied",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\claimed_scope_denied-r1-4caca9ca\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\claimed_scope_denied-r1-4caca9ca\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "error": "forbidden"
+      },
+      "body_raw": "{\"error\": \"forbidden\"}",
+      "headers": {
+        "Content-Length": "22",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:44 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 403
+    },
+    "passed": true,
+    "plan": {
+      "case": "claimed_scope_denied",
+      "expected_body": {
+        "error": "forbidden"
+      },
+      "expected_decision": "scope_denied",
+      "expected_mutations": [],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 403,
+      "request": {
+        "action": "write",
+        "client_metadata": {
+          "claimed_scope": [
+            "read",
+            "write"
+          ]
+        },
+        "resource": "resource-A",
+        "value": "changed-by-fixture"
+      },
+      "run_id": "claimed_scope_denied-r1-4caca9ca",
+      "synthetic_credential": "synthetic-reader-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 7936,
+    "repetition": 1,
+    "run_id": "claimed_scope_denied-r1-4caca9ca"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "write",
+          "decision": "allowed",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [
+        {
+          "id": 1,
+          "new_value": "changed-by-fixture",
+          "old_value": "A-private-fixture",
+          "resource": "resource-A"
+        }
+      ],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "changed-by-fixture",
+          "version": 1
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "hint_does_not_restrict",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\hint_does_not_restrict-r1-efc3b7fb\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\hint_does_not_restrict-r1-efc3b7fb\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "resource": "resource-A",
+        "value": "changed-by-fixture",
+        "version": 1
+      },
+      "body_raw": "{\"resource\": \"resource-A\", \"value\": \"changed-by-fixture\", \"version\": 1}",
+      "headers": {
+        "Content-Length": "71",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:45 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 200
+    },
+    "passed": true,
+    "plan": {
+      "case": "hint_does_not_restrict",
+      "expected_body": {
+        "resource": "resource-A",
+        "value": "changed-by-fixture",
+        "version": 1
+      },
+      "expected_decision": "allowed",
+      "expected_mutations": [
+        {
+          "id": 1,
+          "new_value": "changed-by-fixture",
+          "old_value": "A-private-fixture",
+          "resource": "resource-A"
+        }
+      ],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "changed-by-fixture",
+          "version": 1
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 200,
+      "request": {
+        "action": "write",
+        "client_metadata": {
+          "readOnlyHint": true
+        },
+        "resource": "resource-A",
+        "value": "changed-by-fixture"
+      },
+      "run_id": "hint_does_not_restrict-r1-efc3b7fb",
+      "synthetic_credential": "synthetic-broad-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 33700,
+    "repetition": 1,
+    "run_id": "hint_does_not_restrict-r1-efc3b7fb"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "write",
+          "decision": "scope_denied",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "hint_cannot_elevate",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\hint_cannot_elevate-r1-0734f40f\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\hint_cannot_elevate-r1-0734f40f\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "error": "forbidden"
+      },
+      "body_raw": "{\"error\": \"forbidden\"}",
+      "headers": {
+        "Content-Length": "22",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:45 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 403
+    },
+    "passed": true,
+    "plan": {
+      "case": "hint_cannot_elevate",
+      "expected_body": {
+        "error": "forbidden"
+      },
+      "expected_decision": "scope_denied",
+      "expected_mutations": [],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 403,
+      "request": {
+        "action": "write",
+        "client_metadata": {
+          "readOnlyHint": false
+        },
+        "resource": "resource-A",
+        "value": "changed-by-fixture"
+      },
+      "run_id": "hint_cannot_elevate-r1-0734f40f",
+      "synthetic_credential": "synthetic-reader-A"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 35988,
+    "repetition": 1,
+    "run_id": "hint_cannot_elevate-r1-0734f40f"
+  },
+  {
+    "after": {
+      "audit": [
+        {
+          "action": "read",
+          "decision": "unknown_credential",
+          "id": 1,
+          "resource": "resource-A"
+        }
+      ],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "before": {
+      "audit": [],
+      "credentials": [
+        {
+          "can_read": 1,
+          "can_write": 1,
+          "credential": "synthetic-broad-A",
+          "tenant": "tenant-A"
+        },
+        {
+          "can_read": 1,
+          "can_write": 0,
+          "credential": "synthetic-reader-A",
+          "tenant": "tenant-A"
+        }
+      ],
+      "mutations": [],
+      "resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ]
+    },
+    "case": "unknown_credential",
+    "checks": {
+      "audit_matches_plan": true,
+      "body_matches_plan": true,
+      "denials_have_no_resource_payload": true,
+      "durable_mutations_match_plan": true,
+      "durable_resources_match_plan": true,
+      "initial_fixture_matches_independent_plan": true,
+      "receiver_exit_zero": true,
+      "server_credential_policy_unchanged": true,
+      "status_matches_plan": true
+    },
+    "command": [
+      "[PYTHON]",
+      "-u",
+      "[LAB_ROOT]\\receiver.py",
+      "--db",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\unknown_credential-r1-23535f26\\state.sqlite",
+      "--ready",
+      "[LAB_ROOT]\\runs\\reviewer-independent\\unknown_credential-r1-23535f26\\ready.json"
+    ],
+    "http": {
+      "body": {
+        "error": "unauthorized"
+      },
+      "body_raw": "{\"error\": \"unauthorized\"}",
+      "headers": {
+        "Content-Length": "25",
+        "Content-Type": "application/json",
+        "Date": "Tue, 10 Nov 2026 01:22:46 GMT",
+        "Server": "BaseHTTP/0.6 Python/3.12.14"
+      },
+      "status": 401
+    },
+    "passed": true,
+    "plan": {
+      "case": "unknown_credential",
+      "expected_body": {
+        "error": "unauthorized"
+      },
+      "expected_decision": "unknown_credential",
+      "expected_mutations": [],
+      "expected_resources": [
+        {
+          "id": "resource-A",
+          "tenant": "tenant-A",
+          "value": "A-private-fixture",
+          "version": 0
+        },
+        {
+          "id": "resource-B",
+          "tenant": "tenant-B",
+          "value": "B-private-fixture",
+          "version": 0
+        }
+      ],
+      "expected_status": 401,
+      "request": {
+        "action": "read",
+        "resource": "resource-A"
+      },
+      "run_id": "unknown_credential-r1-23535f26",
+      "synthetic_credential": "synthetic-unknown"
+    },
+    "receiver_exit": 0,
+    "receiver_pid": 39076,
+    "repetition": 1,
+    "run_id": "unknown_credential-r1-23535f26"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "failed": 24,
+  "meaning": "Predetermined requests matched this deliberately implemented toy policy contract.",
+  "passed": 0,
+  "source_sha256": {
+    "lab.py": "cd81aae437c2ebd5e340834f296cc3395106b6b66d916b8b81af6301c60344c8",
+    "receiver.py": "1a1b1ec35dd3f7c6bd4a8be111741e8536cd99f1c29b984c1527ea4a75488fce"
+  },
+  "total": 24
+}

@@ -1,0 +1,11 @@
+# Public derivative and provenance policy
+
+Original local evidence is untouched. Python sources, including clearly labeled deliberately broken reviewer variants, and synthetic SQLite databases are copied byte for byte. Text derivatives replace local interpreter, lab, article, workspace and home prefixes with [PYTHON], [LAB_ROOT], [ARTICLE_ROOT], [WORKSPACE] and [USER_HOME]. Forward slashes, backslashes and JSON-escaped forms receive the same replacement. UTF-8 BOMs, if present, are removed. No numerical observation, status, payload, timestamp, PID, result predicate or source hash is changed. Parsed JSON is checked against the original with only that string transformation applied.
+
+Placeholder commands retain original provenance, not runnable host paths. Use the portable commands in README.md. MANIFEST.json records original and public hashes for every imported artifact. Source paths there are relative to the retained article package, never personal absolute paths. Generated packaging documentation has no original execution hash.
+
+Included: two reviewed source files, lab method/design, all three builder/reviewer run trees including the failed initial run, reviewer broken-source copies and four control executions, and the existing independent review. That review also describes separate article/visual work; those assets are not included in this lab package and its statements are dated historical review evidence, not new native-publication verification.
+
+Excluded: bytecode caches, browser/account data, article drafts, private X research, unrelated work, and all other experiments. Synthetic credential strings and local loopback addresses are intentionally retained because they are reproducible test inputs, not live secrets.
+
+The ZIP contains the same staged files except the ZIP itself and ZIP-SHA256.txt. Entries use sorted names, a fixed 1980 timestamp, fixed permissions and DEFLATE level 9. Building twice in the same recorded Python/zlib environment must yield identical bytes. Compression output across different zlib versions is not promised. FILES.txt lists the complete staged package including the ZIP and checksum. MANIFEST.json excludes itself to avoid a circular hash; the checksum covers the archive containing that manifest.
