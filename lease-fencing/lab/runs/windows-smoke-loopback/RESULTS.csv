@@ -1,0 +1,9 @@
+case,run_id,repetition,policy,passed,value,highest_token,accepted_mutations,statuses,past_expiry_ns
+control_fenced,control_fenced-r1-c6cf0191,1,fenced,True,A-control,1,1,[200],
+stale_unguarded,stale_unguarded-r1-d65c0a2d,1,unguarded,True,A-old,2,2,"[200, 200]",15000000
+stale_fenced,stale_fenced-r1-7efede18,1,fenced,True,B-new,2,1,"[200, 409]",0
+owner_check_toctou,owner_check_toctou-r1-3be76bdd,1,unguarded,True,A-old,2,2,"[200, 200]",0
+restart_fenced,restart_fenced-r1-765d1b18,1,fenced,True,B-new,2,1,"[200, 409]",0
+unseen_successor,unseen_successor-r1-a77b5844,1,fenced,True,B-new,2,2,"[200, 200]",0
+equal_token_writes,equal_token_writes-r1-f9c345af,1,fenced,True,A-v2,1,3,"[200, 200, 200]",
+token_counter_reset,token_counter_reset-r1-bb883fca,1,fenced,True,B-new,2,1,"[200, 409]",15000000

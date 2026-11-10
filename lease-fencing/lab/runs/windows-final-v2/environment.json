@@ -1,0 +1,34 @@
+{
+  "command_argv": [
+    "outputs/pingcron-article-2026-11-09/lab/lab.py",
+    "--output",
+    "outputs/pingcron-article-2026-11-09/lab/runs/windows-final-v2",
+    "--repeats",
+    "3"
+  ],
+  "cwd": "[WORKSPACE]",
+  "executable": "[PYTHON]",
+  "monotonic_clock": {
+    "adjustable": false,
+    "implementation": "GetTickCount64()",
+    "monotonic": true,
+    "resolution": 0.015625
+  },
+  "pid": 28480,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "scope": "single machine, synthetic SQLite effect, actual monotonic deadline, cooperative process gates",
+  "source_sha256": {
+    "common.py": "8d4e179b368acfda28c6e51ed8ba29e4672d9451fa2e724892b3a3ad4b129a86",
+    "lab.py": "bf9cbc51e8c7d46ece93f463c0351cb2b6b56e0b8b83bf1ad8ca39f6daf8f8b5",
+    "receiver.py": "c10901a029e24e4255fbd265ff32d96ab5e15ead5fa1ea8a7f985aad13c2ee05",
+    "worker.py": "758159fe9454042059cebeb0f55378c4681c78d49bb2b6d90d1b5114e8335079"
+  },
+  "sqlite": "3.53.1",
+  "sqlite_pragmas": {
+    "busy_timeout": 10000,
+    "journal_mode": "delete",
+    "synchronous": 2
+  },
+  "utc": "2026-11-10T00:55:46.715944+00:00"
+}

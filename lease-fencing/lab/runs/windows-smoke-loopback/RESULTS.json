@@ -1,0 +1,4030 @@
+[
+  {
+    "case": "control_fenced",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160993328000000,
+          "granted": true,
+          "granted_ns": 160963328000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "current": {
+            "expires_ns": 160993328000000,
+            "granted_ns": 160963328000000,
+            "owner": "A",
+            "resource": "report",
+            "token": 1
+          },
+          "granted": false,
+          "observed_ns": 160963328000000
+        },
+        "label": "B refused while A lease unexpired",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "control write before expiry",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 1,
+          "resource": "report",
+          "value": "A-control"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160963328000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-control"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160963328000000,
+          "id": 1,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-control"
+        }
+      ],
+      "resource": {
+        "highest_token": 1,
+        "resource": "report",
+        "value": "A-control"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160963328000000,
+          "owner": "A",
+          "pid": 34092,
+          "result": {
+            "expires_ns": 160993328000000,
+            "granted": true,
+            "granted_ns": 160963328000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160963328000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160963328000000,
+          "owner": "B",
+          "pid": 30768,
+          "result": {
+            "current": {
+              "expires_ns": 160993328000000,
+              "granted_ns": 160963328000000,
+              "owner": "A",
+              "resource": "report",
+              "token": 1
+            },
+            "granted": false,
+            "observed_ns": 160963328000000
+          }
+        },
+        "sent_ns": 160963328000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64447,
+          "value": "A-control"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160963328000000,
+          "owner": "A",
+          "pid": 34092,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 1,
+                "resource": "report",
+                "value": "A-control"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-control"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160963328000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "A-control",
+        "monotonic_ns": 160963328000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160963328000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-control"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160963328000000,
+              "id": 1,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-control"
+            }
+          ],
+          "resource": {
+            "highest_token": 1,
+            "resource": "report",
+            "value": "A-control"
+          }
+        }
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160963328000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160963328000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-control"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160963328000000,
+              "id": 1,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-control"
+            }
+          ],
+          "resource": {
+            "highest_token": 1,
+            "resource": "report",
+            "value": "A-control"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160963328000000,
+          "pid": 34092
+        },
+        "sent_ns": 160963328000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160963343000000,
+          "pid": 30768
+        },
+        "sent_ns": 160963343000000
+      }
+    ],
+    "expected": {
+      "highest": 1,
+      "payloads": [
+        "A-control"
+      ],
+      "statuses": [
+        200
+      ],
+      "value": "A-control"
+    },
+    "grant_a": {
+      "expires_ns": 160993328000000,
+      "granted": true,
+      "granted_ns": 160963328000000,
+      "owner": "A",
+      "token": 1
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160963328000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-control"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160963328000000,
+          "id": 1,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-control"
+        }
+      ],
+      "resource": {
+        "highest_token": 1,
+        "resource": "report",
+        "value": "A-control"
+      }
+    },
+    "passed": true,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\control_fenced-r1-c6cf0191\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 34092,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\control_fenced-r1-c6cf0191\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 30768,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\control_fenced-r1-c6cf0191\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\control_fenced-r1-c6cf0191\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 28692,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "control_fenced-r1-c6cf0191",
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "case": "stale_unguarded",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160964578000000,
+          "granted": true,
+          "granted_ns": 160964078000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160994593000000,
+          "granted": true,
+          "granted_ns": 160964593000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "B new value committed with fence 2",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          200
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 2,
+          "resource": "report",
+          "value": "A-old"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A really attempted write after expiry and B grant",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160964609000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160964609000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160964609000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "accepted_ns": 160964609000000,
+          "id": 2,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "A-old"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160964078000000,
+          "owner": "A",
+          "pid": 39440,
+          "result": {
+            "expires_ns": 160964578000000,
+            "granted": true,
+            "granted_ns": 160964078000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160964078000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160964609000000,
+          "owner": "B",
+          "pid": 11436,
+          "result": {
+            "expires_ns": 160994593000000,
+            "granted": true,
+            "granted_ns": 160964593000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160964593000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64449,
+          "value": "B-new"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160964609000000,
+          "owner": "B",
+          "pid": 11436,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160964609000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-B-write",
+        "monotonic_ns": 160964609000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160964609000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160964609000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64449,
+          "value": "A-old"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160964625000000,
+          "owner": "A",
+          "pid": 39440,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "A-old"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160964609000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160964625000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160964609000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "accepted",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160964609000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160964609000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "accepted_ns": 160964609000000,
+              "id": 2,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "A-old"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160964625000000,
+          "pid": 39440
+        },
+        "sent_ns": 160964625000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160964625000000,
+          "pid": 11436
+        },
+        "sent_ns": 160964625000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new",
+        "A-old"
+      ],
+      "statuses": [
+        200,
+        200
+      ],
+      "value": "A-old"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160964578000000,
+      "observed_ns": 160964593000000,
+      "observed_past_deadline_ns": 15000000,
+      "wait_started_ns": 160964078000000
+    },
+    "grant_a": {
+      "expires_ns": 160964578000000,
+      "granted": true,
+      "granted_ns": 160964078000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160994593000000,
+      "granted": true,
+      "granted_ns": 160964593000000,
+      "owner": "B",
+      "token": 2
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160964609000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160964609000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160964609000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "accepted_ns": 160964609000000,
+          "id": 2,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "A-old"
+      }
+    },
+    "passed": true,
+    "policy": "unguarded",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_unguarded-r1-d65c0a2d\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 39440,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_unguarded-r1-d65c0a2d\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 11436,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_unguarded-r1-d65c0a2d\\resource.sqlite",
+          "--policy",
+          "unguarded",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_unguarded-r1-d65c0a2d\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 24372,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "stale_unguarded-r1-d65c0a2d",
+    "statuses": [
+      200,
+      200
+    ]
+  },
+  {
+    "case": "stale_fenced",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160965875000000,
+          "granted": true,
+          "granted_ns": 160965375000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160995875000000,
+          "granted": true,
+          "granted_ns": 160965875000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "B new value committed with fence 2",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "rejection preserves value fence and mutation history",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          409
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 2,
+          "resource": "report",
+          "value": "B-new"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A really attempted write after expiry and B grant",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160965890000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "rejected_stale",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160965906000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160965890000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160965375000000,
+          "owner": "A",
+          "pid": 21176,
+          "result": {
+            "expires_ns": 160965875000000,
+            "granted": true,
+            "granted_ns": 160965375000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160965375000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160965890000000,
+          "owner": "B",
+          "pid": 37532,
+          "result": {
+            "expires_ns": 160995875000000,
+            "granted": true,
+            "granted_ns": 160965875000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160965875000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64453,
+          "value": "B-new"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160965890000000,
+          "owner": "B",
+          "pid": 37532,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160965890000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-B-write",
+        "monotonic_ns": 160965890000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160965890000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160965890000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64453,
+          "value": "A-old"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160965921000000,
+          "owner": "A",
+          "pid": 21176,
+          "result": {
+            "body": {
+              "decision": "rejected_stale",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            },
+            "status": 409
+          }
+        },
+        "sent_ns": 160965890000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-rejected-write",
+        "monotonic_ns": 160965921000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160965890000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "rejected_stale",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160965906000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160965890000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160965921000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160965890000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "rejected_stale",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160965906000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160965890000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160965921000000,
+          "pid": 21176
+        },
+        "sent_ns": 160965921000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160965921000000,
+          "pid": 37532
+        },
+        "sent_ns": 160965921000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        409
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160965875000000,
+      "observed_ns": 160965875000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160965375000000
+    },
+    "grant_a": {
+      "expires_ns": 160965875000000,
+      "granted": true,
+      "granted_ns": 160965375000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160995875000000,
+      "granted": true,
+      "granted_ns": 160965875000000,
+      "owner": "B",
+      "token": 2
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160965890000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "rejected_stale",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160965906000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160965890000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "passed": true,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_fenced-r1-7efede18\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 21176,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_fenced-r1-7efede18\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 37532,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_fenced-r1-7efede18\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\stale_fenced-r1-7efede18\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 38088,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "stale_fenced-r1-7efede18",
+    "statuses": [
+      200,
+      409
+    ]
+  },
+  {
+    "case": "owner_check_toctou",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160967140000000,
+          "granted": true,
+          "granted_ns": 160966640000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "current": {
+            "expires_ns": 160967140000000,
+            "granted_ns": 160966640000000,
+            "owner": "A",
+            "resource": "report",
+            "token": 1
+          },
+          "observed_ns": 160966640000000,
+          "owns": true
+        },
+        "label": "A ownership preflight really true",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160997140000000,
+          "granted": true,
+          "granted_ns": 160967140000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "B new value committed with fence 2",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          200
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 2,
+          "resource": "report",
+          "value": "A-old"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A really attempted write after expiry and B grant",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160967156000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160967156000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160967156000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "accepted_ns": 160967156000000,
+          "id": 2,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "A-old"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160966640000000,
+          "owner": "A",
+          "pid": 5480,
+          "result": {
+            "expires_ns": 160967140000000,
+            "granted": true,
+            "granted_ns": 160966640000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160966640000000
+      },
+      {
+        "command": {
+          "action": "check"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "check",
+          "monotonic_ns": 160966640000000,
+          "owner": "A",
+          "pid": 5480,
+          "result": {
+            "current": {
+              "expires_ns": 160967140000000,
+              "granted_ns": 160966640000000,
+              "owner": "A",
+              "resource": "report",
+              "token": 1
+            },
+            "observed_ns": 160966640000000,
+            "owns": true
+          }
+        },
+        "sent_ns": 160966640000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160967156000000,
+          "owner": "B",
+          "pid": 23308,
+          "result": {
+            "expires_ns": 160997140000000,
+            "granted": true,
+            "granted_ns": 160967140000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160967140000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64458,
+          "value": "B-new"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160967156000000,
+          "owner": "B",
+          "pid": 23308,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160967156000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-B-write",
+        "monotonic_ns": 160967156000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160967156000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160967156000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64458,
+          "value": "A-old"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160967171000000,
+          "owner": "A",
+          "pid": 5480,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "A-old"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160967156000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160967171000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160967156000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "accepted",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160967156000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160967156000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "accepted_ns": 160967156000000,
+              "id": 2,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "A-old"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160967171000000,
+          "pid": 5480
+        },
+        "sent_ns": 160967171000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160967171000000,
+          "pid": 23308
+        },
+        "sent_ns": 160967171000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new",
+        "A-old"
+      ],
+      "statuses": [
+        200,
+        200
+      ],
+      "value": "A-old"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160967140000000,
+      "observed_ns": 160967140000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160966640000000
+    },
+    "grant_a": {
+      "expires_ns": 160967140000000,
+      "granted": true,
+      "granted_ns": 160966640000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160997140000000,
+      "granted": true,
+      "granted_ns": 160967140000000,
+      "owner": "B",
+      "token": 2
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160967156000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160967156000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160967156000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "accepted_ns": 160967156000000,
+          "id": 2,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "A-old"
+      }
+    },
+    "passed": true,
+    "policy": "unguarded",
+    "preflight": {
+      "current": {
+        "expires_ns": 160967140000000,
+        "granted_ns": 160966640000000,
+        "owner": "A",
+        "resource": "report",
+        "token": 1
+      },
+      "observed_ns": 160966640000000,
+      "owns": true
+    },
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\owner_check_toctou-r1-3be76bdd\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 5480,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\owner_check_toctou-r1-3be76bdd\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 23308,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\owner_check_toctou-r1-3be76bdd\\resource.sqlite",
+          "--policy",
+          "unguarded",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\owner_check_toctou-r1-3be76bdd\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 2296,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "owner_check_toctou-r1-3be76bdd",
+    "statuses": [
+      200,
+      200
+    ]
+  },
+  {
+    "case": "restart_fenced",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160968437000000,
+          "granted": true,
+          "granted_ns": 160967937000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160998437000000,
+          "granted": true,
+          "granted_ns": 160968437000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "B new value committed with fence 2",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "new receiver process sees persisted state",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "rejection preserves value fence and mutation history",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          409
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 2,
+          "resource": "report",
+          "value": "B-new"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A really attempted write after expiry and B grant",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160968453000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "rejected_stale",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160969062000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160968453000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160967937000000,
+          "owner": "A",
+          "pid": 30372,
+          "result": {
+            "expires_ns": 160968437000000,
+            "granted": true,
+            "granted_ns": 160967937000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160967937000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160968437000000,
+          "owner": "B",
+          "pid": 37868,
+          "result": {
+            "expires_ns": 160998437000000,
+            "granted": true,
+            "granted_ns": 160968437000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160968437000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64462,
+          "value": "B-new"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160968453000000,
+          "owner": "B",
+          "pid": 37868,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160968437000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-B-write",
+        "monotonic_ns": 160968453000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160968453000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160968453000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-receiver-restart",
+        "monotonic_ns": 160969046000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160968453000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160968453000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64465,
+          "value": "A-old"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160969062000000,
+          "owner": "A",
+          "pid": 30372,
+          "result": {
+            "body": {
+              "decision": "rejected_stale",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            },
+            "status": 409
+          }
+        },
+        "sent_ns": 160969046000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-rejected-write",
+        "monotonic_ns": 160969062000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160968453000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "rejected_stale",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160969062000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160968453000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160969062000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160968453000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "rejected_stale",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160969062000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160968453000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160969062000000,
+          "pid": 30372
+        },
+        "sent_ns": 160969062000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160969062000000,
+          "pid": 37868
+        },
+        "sent_ns": 160969062000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        409
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160968437000000,
+      "observed_ns": 160968437000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160967937000000
+    },
+    "grant_a": {
+      "expires_ns": 160968437000000,
+      "granted": true,
+      "granted_ns": 160967937000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160998437000000,
+      "granted": true,
+      "granted_ns": 160968437000000,
+      "owner": "B",
+      "token": 2
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160968453000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "rejected_stale",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160969062000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160968453000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "passed": true,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\restart_fenced-r1-765d1b18\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\restart_fenced-r1-765d1b18\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 32704,
+        "role": "receiver"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\restart_fenced-r1-765d1b18\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 30372,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\restart_fenced-r1-765d1b18\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 37868,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\restart_fenced-r1-765d1b18\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\restart_fenced-r1-765d1b18\\receiver-2-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 34488,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "restart_fenced-r1-765d1b18",
+    "statuses": [
+      200,
+      409
+    ]
+  },
+  {
+    "case": "unseen_successor",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160970312000000,
+          "granted": true,
+          "granted_ns": 160969812000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 161000312000000,
+          "granted": true,
+          "granted_ns": 160970312000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "expired A accepted before successor fence observed",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          200
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 2,
+          "resource": "report",
+          "value": "B-new"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A really attempted write after expiry and B grant",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160970328000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 1,
+          "observed_ns": 160970328000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160970328000000,
+          "id": 1,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-old"
+        },
+        {
+          "accepted_ns": 160970328000000,
+          "id": 2,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160969812000000,
+          "owner": "A",
+          "pid": 34328,
+          "result": {
+            "expires_ns": 160970312000000,
+            "granted": true,
+            "granted_ns": 160969812000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160969812000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160970328000000,
+          "owner": "B",
+          "pid": 10604,
+          "result": {
+            "expires_ns": 161000312000000,
+            "granted": true,
+            "granted_ns": 160970312000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160970312000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64467,
+          "value": "A-old"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160970328000000,
+          "owner": "A",
+          "pid": 34328,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 1,
+                "resource": "report",
+                "value": "A-old"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160970328000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "A-accepted-before-B-reaches-sink",
+        "monotonic_ns": 160970328000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160970328000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160970328000000,
+              "id": 1,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-old"
+            }
+          ],
+          "resource": {
+            "highest_token": 1,
+            "resource": "report",
+            "value": "A-old"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64467,
+          "value": "B-new"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160970328000000,
+          "owner": "B",
+          "pid": 10604,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160970328000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160970328000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160970328000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-old"
+            },
+            {
+              "decision": "accepted",
+              "id": 2,
+              "observed_highest": 1,
+              "observed_ns": 160970328000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160970328000000,
+              "id": 1,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-old"
+            },
+            {
+              "accepted_ns": 160970328000000,
+              "id": 2,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160970328000000,
+          "pid": 34328
+        },
+        "sent_ns": 160970328000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160970343000000,
+          "pid": 10604
+        },
+        "sent_ns": 160970343000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "A-old",
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        200
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160970312000000,
+      "observed_ns": 160970312000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160969812000000
+    },
+    "grant_a": {
+      "expires_ns": 160970312000000,
+      "granted": true,
+      "granted_ns": 160969812000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 161000312000000,
+      "granted": true,
+      "granted_ns": 160970312000000,
+      "owner": "B",
+      "token": 2
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160970328000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-old"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 1,
+          "observed_ns": 160970328000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160970328000000,
+          "id": 1,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-old"
+        },
+        {
+          "accepted_ns": 160970328000000,
+          "id": 2,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "passed": true,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\unseen_successor-r1-a77b5844\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 34328,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\unseen_successor-r1-a77b5844\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 10604,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\unseen_successor-r1-a77b5844\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\unseen_successor-r1-a77b5844\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 11044,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "unseen_successor-r1-a77b5844",
+    "statuses": [
+      200,
+      200
+    ]
+  },
+  {
+    "case": "equal_token_writes",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 161001093000000,
+          "granted": true,
+          "granted_ns": 160971093000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "three distinct mutation records share token 1",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          200,
+          200
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 1,
+          "resource": "report",
+          "value": "A-v2"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160971109000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-v1"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 1,
+          "observed_ns": 160971109000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-v2"
+        },
+        {
+          "decision": "accepted",
+          "id": 3,
+          "observed_highest": 1,
+          "observed_ns": 160971109000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-v2"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160971109000000,
+          "id": 1,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-v1"
+        },
+        {
+          "accepted_ns": 160971109000000,
+          "id": 2,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-v2"
+        },
+        {
+          "accepted_ns": 160971109000000,
+          "id": 3,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-v2"
+        }
+      ],
+      "resource": {
+        "highest_token": 1,
+        "resource": "report",
+        "value": "A-v2"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160971093000000,
+          "owner": "A",
+          "pid": 35068,
+          "result": {
+            "expires_ns": 161001093000000,
+            "granted": true,
+            "granted_ns": 160971093000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160971093000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64471,
+          "value": "A-v1"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160971109000000,
+          "owner": "A",
+          "pid": 35068,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 1,
+                "resource": "report",
+                "value": "A-v1"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-v1"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160971093000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64471,
+          "value": "A-v2"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160971109000000,
+          "owner": "A",
+          "pid": 35068,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 1,
+                "resource": "report",
+                "value": "A-v2"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-v2"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160971109000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64471,
+          "value": "A-v2"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160971109000000,
+          "owner": "A",
+          "pid": 35068,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 1,
+                "resource": "report",
+                "value": "A-v2"
+              }
+            },
+            "request": {
+              "owner": "A",
+              "token": 1,
+              "value": "A-v2"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160971109000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "same-token-three-writes",
+        "monotonic_ns": 160971109000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160971109000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-v1"
+            },
+            {
+              "decision": "accepted",
+              "id": 2,
+              "observed_highest": 1,
+              "observed_ns": 160971109000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-v2"
+            },
+            {
+              "decision": "accepted",
+              "id": 3,
+              "observed_highest": 1,
+              "observed_ns": 160971109000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-v2"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160971109000000,
+              "id": 1,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-v1"
+            },
+            {
+              "accepted_ns": 160971109000000,
+              "id": 2,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-v2"
+            },
+            {
+              "accepted_ns": 160971109000000,
+              "id": 3,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-v2"
+            }
+          ],
+          "resource": {
+            "highest_token": 1,
+            "resource": "report",
+            "value": "A-v2"
+          }
+        }
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160971109000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160971109000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-v1"
+            },
+            {
+              "decision": "accepted",
+              "id": 2,
+              "observed_highest": 1,
+              "observed_ns": 160971109000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-v2"
+            },
+            {
+              "decision": "accepted",
+              "id": 3,
+              "observed_highest": 1,
+              "observed_ns": 160971109000000,
+              "owner": "A",
+              "token": 1,
+              "value": "A-v2"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160971109000000,
+              "id": 1,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-v1"
+            },
+            {
+              "accepted_ns": 160971109000000,
+              "id": 2,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-v2"
+            },
+            {
+              "accepted_ns": 160971109000000,
+              "id": 3,
+              "owner": "A",
+              "resource": "report",
+              "token": 1,
+              "value": "A-v2"
+            }
+          ],
+          "resource": {
+            "highest_token": 1,
+            "resource": "report",
+            "value": "A-v2"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160971109000000,
+          "pid": 35068
+        },
+        "sent_ns": 160971109000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160971125000000,
+          "pid": 30460
+        },
+        "sent_ns": 160971125000000
+      }
+    ],
+    "expected": {
+      "highest": 1,
+      "payloads": [
+        "A-v1",
+        "A-v2",
+        "A-v2"
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "value": "A-v2"
+    },
+    "grant_a": {
+      "expires_ns": 161001093000000,
+      "granted": true,
+      "granted_ns": 160971093000000,
+      "owner": "A",
+      "token": 1
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160971109000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-v1"
+        },
+        {
+          "decision": "accepted",
+          "id": 2,
+          "observed_highest": 1,
+          "observed_ns": 160971109000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-v2"
+        },
+        {
+          "decision": "accepted",
+          "id": 3,
+          "observed_highest": 1,
+          "observed_ns": 160971109000000,
+          "owner": "A",
+          "token": 1,
+          "value": "A-v2"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160971109000000,
+          "id": 1,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-v1"
+        },
+        {
+          "accepted_ns": 160971109000000,
+          "id": 2,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-v2"
+        },
+        {
+          "accepted_ns": 160971109000000,
+          "id": 3,
+          "owner": "A",
+          "resource": "report",
+          "token": 1,
+          "value": "A-v2"
+        }
+      ],
+      "resource": {
+        "highest_token": 1,
+        "resource": "report",
+        "value": "A-v2"
+      }
+    },
+    "passed": true,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\equal_token_writes-r1-f9c345af\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 35068,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\equal_token_writes-r1-f9c345af\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 30460,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\equal_token_writes-r1-f9c345af\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\equal_token_writes-r1-f9c345af\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 36052,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "equal_token_writes-r1-f9c345af",
+    "statuses": [
+      200,
+      200,
+      200
+    ]
+  },
+  {
+    "case": "token_counter_reset",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160972375000000,
+          "granted": true,
+          "granted_ns": 160971875000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 161002390000000,
+          "granted": true,
+          "granted_ns": 160972390000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "B new value committed with fence 2",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "reset authority really grants fresh C token 1",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "rejection preserves value fence and mutation history",
+        "passed": true
+      },
+      {
+        "evidence": [
+          200,
+          409
+        ],
+        "label": "HTTP statuses match independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "highest_token": 2,
+          "resource": "report",
+          "value": "B-new"
+        },
+        "label": "final business value matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "mutation payload sequence matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "durable high-water matches independent case plan",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "one audit attempt per response",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": true
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": true
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160972406000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "rejected_stale",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160972484000000,
+          "owner": "C",
+          "token": 1,
+          "value": "C-fresh"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160972406000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160971875000000,
+          "owner": "A",
+          "pid": 8816,
+          "result": {
+            "expires_ns": 160972375000000,
+            "granted": true,
+            "granted_ns": 160971875000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160971875000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160972406000000,
+          "owner": "B",
+          "pid": 32960,
+          "result": {
+            "expires_ns": 161002390000000,
+            "granted": true,
+            "granted_ns": 160972390000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160972390000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64476,
+          "value": "B-new"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160972406000000,
+          "owner": "B",
+          "pid": 32960,
+          "result": {
+            "body": {
+              "decision": "accepted",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            "status": 200
+          }
+        },
+        "sent_ns": 160972406000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-B-write",
+        "monotonic_ns": 160972406000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160972406000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160972406000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "kind": "deliberate_authority_state_reset",
+        "monotonic_ns": 160972421000000,
+        "reset_token_to": 0
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "C",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160972484000000,
+          "owner": "C",
+          "pid": 30052,
+          "result": {
+            "expires_ns": 161002484000000,
+            "granted": true,
+            "granted_ns": 160972484000000,
+            "owner": "C",
+            "token": 1
+          }
+        },
+        "sent_ns": 160972484000000
+      },
+      {
+        "command": {
+          "action": "write",
+          "port": 64476,
+          "value": "C-fresh"
+        },
+        "kind": "worker_command",
+        "owner": "C",
+        "reply": {
+          "event": "write",
+          "monotonic_ns": 160972484000000,
+          "owner": "C",
+          "pid": 30052,
+          "result": {
+            "body": {
+              "decision": "rejected_stale",
+              "state": {
+                "highest_token": 2,
+                "resource": "report",
+                "value": "B-new"
+              }
+            },
+            "request": {
+              "owner": "C",
+              "token": 1,
+              "value": "C-fresh"
+            },
+            "status": 409
+          }
+        },
+        "sent_ns": 160972484000000
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "after-rejected-write",
+        "monotonic_ns": 160972484000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160972406000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "rejected_stale",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160972484000000,
+              "owner": "C",
+              "token": 1,
+              "value": "C-fresh"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160972406000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "kind": "sql_snapshot",
+        "label": "final-before-shutdown",
+        "monotonic_ns": 160972500000000,
+        "state": {
+          "attempts": [
+            {
+              "decision": "accepted",
+              "id": 1,
+              "observed_highest": 0,
+              "observed_ns": 160972406000000,
+              "owner": "B",
+              "token": 2,
+              "value": "B-new"
+            },
+            {
+              "decision": "rejected_stale",
+              "id": 2,
+              "observed_highest": 2,
+              "observed_ns": 160972484000000,
+              "owner": "C",
+              "token": 1,
+              "value": "C-fresh"
+            }
+          ],
+          "mutations": [
+            {
+              "accepted_ns": 160972406000000,
+              "id": 1,
+              "owner": "B",
+              "resource": "report",
+              "token": 2,
+              "value": "B-new"
+            }
+          ],
+          "resource": {
+            "highest_token": 2,
+            "resource": "report",
+            "value": "B-new"
+          }
+        }
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160972500000000,
+          "pid": 8816
+        },
+        "sent_ns": 160972500000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160972500000000,
+          "pid": 32960
+        },
+        "sent_ns": 160972500000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "C",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160972500000000,
+          "pid": 30052
+        },
+        "sent_ns": 160972500000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        409
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160972375000000,
+      "observed_ns": 160972390000000,
+      "observed_past_deadline_ns": 15000000,
+      "wait_started_ns": 160971875000000
+    },
+    "grant_a": {
+      "expires_ns": 160972375000000,
+      "granted": true,
+      "granted_ns": 160971875000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 161002390000000,
+      "granted": true,
+      "granted_ns": 160972390000000,
+      "owner": "B",
+      "token": 2
+    },
+    "grant_c": {
+      "expires_ns": 161002484000000,
+      "granted": true,
+      "granted_ns": 160972484000000,
+      "owner": "C",
+      "token": 1
+    },
+    "observed": {
+      "attempts": [
+        {
+          "decision": "accepted",
+          "id": 1,
+          "observed_highest": 0,
+          "observed_ns": 160972406000000,
+          "owner": "B",
+          "token": 2,
+          "value": "B-new"
+        },
+        {
+          "decision": "rejected_stale",
+          "id": 2,
+          "observed_highest": 2,
+          "observed_ns": 160972484000000,
+          "owner": "C",
+          "token": 1,
+          "value": "C-fresh"
+        }
+      ],
+      "mutations": [
+        {
+          "accepted_ns": 160972406000000,
+          "id": 1,
+          "owner": "B",
+          "resource": "report",
+          "token": 2,
+          "value": "B-new"
+        }
+      ],
+      "resource": {
+        "highest_token": 2,
+        "resource": "report",
+        "value": "B-new"
+      }
+    },
+    "passed": true,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\token_counter_reset-r1-bb883fca\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 8816,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\token_counter_reset-r1-bb883fca\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 32960,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\token_counter_reset-r1-bb883fca\\authority.sqlite",
+          "--owner",
+          "C"
+        ],
+        "exit_code": 0,
+        "owner": "C",
+        "pid": 30052,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\token_counter_reset-r1-bb883fca\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke-loopback\\token_counter_reset-r1-bb883fca\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 40440,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "token_counter_reset-r1-bb883fca",
+    "statuses": [
+      200,
+      409
+    ]
+  }
+]

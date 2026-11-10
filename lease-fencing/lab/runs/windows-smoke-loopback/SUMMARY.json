@@ -1,0 +1,12 @@
+{
+  "failed": 0,
+  "meaning": "Expected bounded observations reproduced, not success of every policy.",
+  "passed": 8,
+  "source_sha256": {
+    "common.py": "8d4e179b368acfda28c6e51ed8ba29e4672d9451fa2e724892b3a3ad4b129a86",
+    "lab.py": "32e92a228044eac2197e38afb474b50bbc3644295bd02f93513a5c58b9051d3e",
+    "receiver.py": "c10901a029e24e4255fbd265ff32d96ab5e15ead5fa1ea8a7f985aad13c2ee05",
+    "worker.py": "758159fe9454042059cebeb0f55378c4681c78d49bb2b6d90d1b5114e8335079"
+  },
+  "total": 8
+}

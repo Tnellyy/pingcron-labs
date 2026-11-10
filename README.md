@@ -2,6 +2,14 @@
 
 Runnable experiments and observed results behind PingCron technical articles. Synthetic fixtures, explicit limits, and runnable code.
 
+## Lease fencing
+
+[Your lock expired. Your worker kept writing.](lease-fencing/README.md)
+
+Eight conditions test stale workers, atomic receiver fencing, preflight races, restart persistence and the boundary before a newer token reaches the receiver. 24 final builder observations and 8 independent reproductions. Synthetic Windows lab; earlier failures retained.
+
+[Download source and results](lease-fencing/lease-fencing-source-and-results.zip?raw=true) · [Method and limits](lease-fencing/lab/README.md)
+
 ## Retry idempotency
 
 [Your request timed out. Your retry created a duplicate.](retry-idempotency/README.md)

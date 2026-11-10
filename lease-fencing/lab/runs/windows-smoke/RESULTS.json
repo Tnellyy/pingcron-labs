@@ -1,0 +1,1527 @@
+[
+  {
+    "case": "control_fenced",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160966687000000,
+          "granted": true,
+          "granted_ns": 160936687000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "current": {
+            "expires_ns": 160966687000000,
+            "granted_ns": 160936687000000,
+            "owner": "A",
+            "resource": "report",
+            "token": 1
+          },
+          "granted": false,
+          "observed_ns": 160936687000000
+        },
+        "label": "B refused while A lease unexpired",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160936687000000,
+          "owner": "A",
+          "pid": 2748,
+          "result": {
+            "expires_ns": 160966687000000,
+            "granted": true,
+            "granted_ns": 160936687000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160936687000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160936687000000,
+          "owner": "B",
+          "pid": 6316,
+          "result": {
+            "current": {
+              "expires_ns": 160966687000000,
+              "granted_ns": 160936687000000,
+              "owner": "A",
+              "resource": "report",
+              "token": 1
+            },
+            "granted": false,
+            "observed_ns": 160936687000000
+          }
+        },
+        "sent_ns": 160936687000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160936703000000,
+          "pid": 6316
+        },
+        "sent_ns": 160936703000000
+      }
+    ],
+    "expected": {
+      "highest": 1,
+      "payloads": [
+        "A-control"
+      ],
+      "statuses": [
+        200
+      ],
+      "value": "A-control"
+    },
+    "grant_a": {
+      "expires_ns": 160966687000000,
+      "granted": true,
+      "granted_ns": 160936687000000,
+      "owner": "A",
+      "token": 1
+    },
+    "passed": false,
+    "policy": "fenced",
+    "processes": [
+      {
+        "cleanup_error": "OSError(22, 'Invalid argument')",
+        "owner": "A",
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\control_fenced-r1-e62d0799\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 6316,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\control_fenced-r1-e62d0799\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\control_fenced-r1-e62d0799\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 34040,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "control_fenced-r1-e62d0799"
+  },
+  {
+    "case": "stale_unguarded",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160937828000000,
+          "granted": true,
+          "granted_ns": 160937328000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160967828000000,
+          "granted": true,
+          "granted_ns": 160937828000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160937343000000,
+          "owner": "A",
+          "pid": 21268,
+          "result": {
+            "expires_ns": 160937828000000,
+            "granted": true,
+            "granted_ns": 160937328000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160937328000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160937828000000,
+          "owner": "B",
+          "pid": 12300,
+          "result": {
+            "expires_ns": 160967828000000,
+            "granted": true,
+            "granted_ns": 160937828000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160937828000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160937843000000,
+          "pid": 21268
+        },
+        "sent_ns": 160937843000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new",
+        "A-old"
+      ],
+      "statuses": [
+        200,
+        200
+      ],
+      "value": "A-old"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160937828000000,
+      "observed_ns": 160937828000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160937343000000
+    },
+    "grant_a": {
+      "expires_ns": 160937828000000,
+      "granted": true,
+      "granted_ns": 160937328000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160967828000000,
+      "granted": true,
+      "granted_ns": 160937828000000,
+      "owner": "B",
+      "token": 2
+    },
+    "passed": false,
+    "policy": "unguarded",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_unguarded-r1-ceb0086c\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 21268,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_unguarded-r1-ceb0086c\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 1,
+        "owner": "B",
+        "pid": 12300,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_unguarded-r1-ceb0086c\\resource.sqlite",
+          "--policy",
+          "unguarded",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_unguarded-r1-ceb0086c\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 6108,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "stale_unguarded-r1-ceb0086c"
+  },
+  {
+    "case": "stale_fenced",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160939000000000,
+          "granted": true,
+          "granted_ns": 160938500000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160969015000000,
+          "granted": true,
+          "granted_ns": 160939015000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160938500000000,
+          "owner": "A",
+          "pid": 6104,
+          "result": {
+            "expires_ns": 160939000000000,
+            "granted": true,
+            "granted_ns": 160938500000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160938484000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160939015000000,
+          "owner": "B",
+          "pid": 3732,
+          "result": {
+            "expires_ns": 160969015000000,
+            "granted": true,
+            "granted_ns": 160939015000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160939015000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160939031000000,
+          "pid": 6104
+        },
+        "sent_ns": 160939031000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        409
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160939000000000,
+      "observed_ns": 160939015000000,
+      "observed_past_deadline_ns": 15000000,
+      "wait_started_ns": 160938500000000
+    },
+    "grant_a": {
+      "expires_ns": 160939000000000,
+      "granted": true,
+      "granted_ns": 160938500000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160969015000000,
+      "granted": true,
+      "granted_ns": 160939015000000,
+      "owner": "B",
+      "token": 2
+    },
+    "passed": false,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_fenced-r1-ba4a7e68\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 6104,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_fenced-r1-ba4a7e68\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 1,
+        "owner": "B",
+        "pid": 3732,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_fenced-r1-ba4a7e68\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\stale_fenced-r1-ba4a7e68\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 13396,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "stale_fenced-r1-ba4a7e68"
+  },
+  {
+    "case": "owner_check_toctou",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160940140000000,
+          "granted": true,
+          "granted_ns": 160939640000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "current": {
+            "expires_ns": 160940140000000,
+            "granted_ns": 160939640000000,
+            "owner": "A",
+            "resource": "report",
+            "token": 1
+          },
+          "observed_ns": 160939656000000,
+          "owns": true
+        },
+        "label": "A ownership preflight really true",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160970140000000,
+          "granted": true,
+          "granted_ns": 160940140000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160939656000000,
+          "owner": "A",
+          "pid": 34188,
+          "result": {
+            "expires_ns": 160940140000000,
+            "granted": true,
+            "granted_ns": 160939640000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160939640000000
+      },
+      {
+        "command": {
+          "action": "check"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "check",
+          "monotonic_ns": 160939656000000,
+          "owner": "A",
+          "pid": 34188,
+          "result": {
+            "current": {
+              "expires_ns": 160940140000000,
+              "granted_ns": 160939640000000,
+              "owner": "A",
+              "resource": "report",
+              "token": 1
+            },
+            "observed_ns": 160939656000000,
+            "owns": true
+          }
+        },
+        "sent_ns": 160939656000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160940140000000,
+          "owner": "B",
+          "pid": 38924,
+          "result": {
+            "expires_ns": 160970140000000,
+            "granted": true,
+            "granted_ns": 160940140000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160940140000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160940156000000,
+          "pid": 34188
+        },
+        "sent_ns": 160940156000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new",
+        "A-old"
+      ],
+      "statuses": [
+        200,
+        200
+      ],
+      "value": "A-old"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160940140000000,
+      "observed_ns": 160940140000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160939656000000
+    },
+    "grant_a": {
+      "expires_ns": 160940140000000,
+      "granted": true,
+      "granted_ns": 160939640000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160970140000000,
+      "granted": true,
+      "granted_ns": 160940140000000,
+      "owner": "B",
+      "token": 2
+    },
+    "passed": false,
+    "policy": "unguarded",
+    "preflight": {
+      "current": {
+        "expires_ns": 160940140000000,
+        "granted_ns": 160939640000000,
+        "owner": "A",
+        "resource": "report",
+        "token": 1
+      },
+      "observed_ns": 160939656000000,
+      "owns": true
+    },
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\owner_check_toctou-r1-7d9e05d8\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 34188,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\owner_check_toctou-r1-7d9e05d8\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 1,
+        "owner": "B",
+        "pid": 38924,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\owner_check_toctou-r1-7d9e05d8\\resource.sqlite",
+          "--policy",
+          "unguarded",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\owner_check_toctou-r1-7d9e05d8\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 33592,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "owner_check_toctou-r1-7d9e05d8"
+  },
+  {
+    "case": "restart_fenced",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160941281000000,
+          "granted": true,
+          "granted_ns": 160940781000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160971281000000,
+          "granted": true,
+          "granted_ns": 160941281000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160940781000000,
+          "owner": "A",
+          "pid": 19484,
+          "result": {
+            "expires_ns": 160941281000000,
+            "granted": true,
+            "granted_ns": 160940781000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160940781000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160941296000000,
+          "owner": "B",
+          "pid": 36960,
+          "result": {
+            "expires_ns": 160971281000000,
+            "granted": true,
+            "granted_ns": 160941281000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160941281000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160941296000000,
+          "pid": 19484
+        },
+        "sent_ns": 160941296000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        409
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160941281000000,
+      "observed_ns": 160941281000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160940781000000
+    },
+    "grant_a": {
+      "expires_ns": 160941281000000,
+      "granted": true,
+      "granted_ns": 160940781000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160971281000000,
+      "granted": true,
+      "granted_ns": 160941281000000,
+      "owner": "B",
+      "token": 2
+    },
+    "passed": false,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\restart_fenced-r1-e928e1cd\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 19484,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\restart_fenced-r1-e928e1cd\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 1,
+        "owner": "B",
+        "pid": 36960,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\restart_fenced-r1-e928e1cd\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\restart_fenced-r1-e928e1cd\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 31924,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "restart_fenced-r1-e928e1cd"
+  },
+  {
+    "case": "unseen_successor",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160942437000000,
+          "granted": true,
+          "granted_ns": 160941937000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160972453000000,
+          "granted": true,
+          "granted_ns": 160942453000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160941937000000,
+          "owner": "A",
+          "pid": 35196,
+          "result": {
+            "expires_ns": 160942437000000,
+            "granted": true,
+            "granted_ns": 160941937000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160941937000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160942453000000,
+          "owner": "B",
+          "pid": 4592,
+          "result": {
+            "expires_ns": 160972453000000,
+            "granted": true,
+            "granted_ns": 160942453000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160942437000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160942484000000,
+          "pid": 4592
+        },
+        "sent_ns": 160942484000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "A-old",
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        200
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160942437000000,
+      "observed_ns": 160942437000000,
+      "observed_past_deadline_ns": 0,
+      "wait_started_ns": 160941937000000
+    },
+    "grant_a": {
+      "expires_ns": 160942437000000,
+      "granted": true,
+      "granted_ns": 160941937000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160972453000000,
+      "granted": true,
+      "granted_ns": 160942453000000,
+      "owner": "B",
+      "token": 2
+    },
+    "passed": false,
+    "policy": "fenced",
+    "processes": [
+      {
+        "cleanup_error": "OSError(22, 'Invalid argument')",
+        "owner": "A",
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\unseen_successor-r1-c4d2701a\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 4592,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\unseen_successor-r1-c4d2701a\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\unseen_successor-r1-c4d2701a\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 2020,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "unseen_successor-r1-c4d2701a"
+  },
+  {
+    "case": "equal_token_writes",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160973078000000,
+          "granted": true,
+          "granted_ns": 160943078000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160943078000000,
+          "owner": "A",
+          "pid": 28312,
+          "result": {
+            "expires_ns": 160973078000000,
+            "granted": true,
+            "granted_ns": 160943078000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160943078000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160943093000000,
+          "pid": 35128
+        },
+        "sent_ns": 160943093000000
+      }
+    ],
+    "expected": {
+      "highest": 1,
+      "payloads": [
+        "A-v1",
+        "A-v2",
+        "A-v2"
+      ],
+      "statuses": [
+        200,
+        200,
+        200
+      ],
+      "value": "A-v2"
+    },
+    "grant_a": {
+      "expires_ns": 160973078000000,
+      "granted": true,
+      "granted_ns": 160943078000000,
+      "owner": "A",
+      "token": 1
+    },
+    "passed": false,
+    "policy": "fenced",
+    "processes": [
+      {
+        "cleanup_error": "OSError(22, 'Invalid argument')",
+        "owner": "A",
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\equal_token_writes-r1-0373f039\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 0,
+        "owner": "B",
+        "pid": 35128,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\equal_token_writes-r1-0373f039\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\equal_token_writes-r1-0373f039\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 33680,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "equal_token_writes-r1-0373f039"
+  },
+  {
+    "case": "token_counter_reset",
+    "checks": [
+      {
+        "evidence": {
+          "expires_ns": 160944234000000,
+          "granted": true,
+          "granted_ns": 160943734000000,
+          "owner": "A",
+          "token": 1
+        },
+        "label": "A acquired first token",
+        "passed": true
+      },
+      {
+        "evidence": null,
+        "label": "A process still alive after its actual deadline",
+        "passed": true
+      },
+      {
+        "evidence": {
+          "expires_ns": 160974250000000,
+          "granted": true,
+          "granted_ns": 160944250000000,
+          "owner": "B",
+          "token": 2
+        },
+        "label": "B grant occurs after A expires with larger token",
+        "passed": true
+      },
+      {
+        "label": "clean child process exits",
+        "passed": false
+      },
+      {
+        "label": "SQL state survives clean process shutdown",
+        "passed": false
+      }
+    ],
+    "durable_after_shutdown": {
+      "attempts": [],
+      "mutations": [],
+      "resource": {
+        "highest_token": 0,
+        "resource": "report",
+        "value": "initial"
+      }
+    },
+    "error": {
+      "message": "worker exited before response",
+      "type": "RuntimeError"
+    },
+    "events": [
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 500
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160943734000000,
+          "owner": "A",
+          "pid": 36384,
+          "result": {
+            "expires_ns": 160944234000000,
+            "granted": true,
+            "granted_ns": 160943734000000,
+            "owner": "A",
+            "token": 1
+          }
+        },
+        "sent_ns": 160943734000000
+      },
+      {
+        "command": {
+          "action": "acquire",
+          "ttl_ms": 30000
+        },
+        "kind": "worker_command",
+        "owner": "B",
+        "reply": {
+          "event": "acquire",
+          "monotonic_ns": 160944265000000,
+          "owner": "B",
+          "pid": 23172,
+          "result": {
+            "expires_ns": 160974250000000,
+            "granted": true,
+            "granted_ns": 160944250000000,
+            "owner": "B",
+            "token": 2
+          }
+        },
+        "sent_ns": 160944250000000
+      },
+      {
+        "command": {
+          "action": "stop"
+        },
+        "kind": "worker_command",
+        "owner": "A",
+        "reply": {
+          "event": "stopped",
+          "monotonic_ns": 160944281000000,
+          "pid": 36384
+        },
+        "sent_ns": 160944281000000
+      }
+    ],
+    "expected": {
+      "highest": 2,
+      "payloads": [
+        "B-new"
+      ],
+      "statuses": [
+        200,
+        409
+      ],
+      "value": "B-new"
+    },
+    "expiry_observation": {
+      "deadline_ns": 160944234000000,
+      "observed_ns": 160944250000000,
+      "observed_past_deadline_ns": 16000000,
+      "wait_started_ns": 160943734000000
+    },
+    "grant_a": {
+      "expires_ns": 160944234000000,
+      "granted": true,
+      "granted_ns": 160943734000000,
+      "owner": "A",
+      "token": 1
+    },
+    "grant_b": {
+      "expires_ns": 160974250000000,
+      "granted": true,
+      "granted_ns": 160944250000000,
+      "owner": "B",
+      "token": 2
+    },
+    "passed": false,
+    "policy": "fenced",
+    "processes": [
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\token_counter_reset-r1-725f3e20\\authority.sqlite",
+          "--owner",
+          "A"
+        ],
+        "exit_code": 0,
+        "owner": "A",
+        "pid": 36384,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\worker.py",
+          "--authority",
+          "[LAB_ROOT]\\runs\\windows-smoke\\token_counter_reset-r1-725f3e20\\authority.sqlite",
+          "--owner",
+          "B"
+        ],
+        "exit_code": 1,
+        "owner": "B",
+        "pid": 23172,
+        "role": "worker"
+      },
+      {
+        "command": [
+          "[PYTHON]",
+          "-u",
+          "[LAB_ROOT]\\receiver.py",
+          "--db",
+          "[LAB_ROOT]\\runs\\windows-smoke\\token_counter_reset-r1-725f3e20\\resource.sqlite",
+          "--policy",
+          "fenced",
+          "--ready",
+          "[LAB_ROOT]\\runs\\windows-smoke\\token_counter_reset-r1-725f3e20\\receiver-1-ready.json"
+        ],
+        "exit_code": 0,
+        "pid": 21640,
+        "role": "receiver"
+      }
+    ],
+    "repetition": 1,
+    "run_id": "token_counter_reset-r1-725f3e20"
+  }
+]
